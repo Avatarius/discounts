@@ -15,6 +15,7 @@ module.exports = {
         'timer-digits': ['60px', {fontWeight: 400, lineHeight: 1}],
         'timer-letters': ['16px', {fontWeight: 700}],
         'card-title': ['30px', {fontWeight: 400, lineHeight: 1}],
+        'card-title-horizontal': ['38px', {fontWeight: 400, lineHeight: 1}],
         'card-discount': ['50px', {fontWeight: 700, lineHeight: 1.1, letterSpacing: '-0.04em'}],
         'card-no-discount': ['24px', {fontWeight: 500, lineHeight: 1.1}],
         'card-description': ['16px', {fontWeight: 500, lineHeight: 1.3}]
@@ -24,6 +25,7 @@ module.exports = {
         'timer-digits': '#01b9c5',
         'timer-letters': '#818798',
         'card-title': '#687078',
+        'card-title-horizontal': '#2d3242',
         'card-discount': '#2d3242',
         'card-no-discount': '#95979f',
         'card-description': '#2f4353'
@@ -31,6 +33,7 @@ module.exports = {
       padding: {
         'header': '8px 69px 14px 0',
         'card': '45px 0 26px 0',
+        'card-horizontal': '0 0 0 0',
         'card-title': '32px',
         'card-discount': '6px',
         'card-no-discount': '36px'

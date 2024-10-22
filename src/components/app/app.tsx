@@ -52,7 +52,7 @@ function App() {
             <Card data={data.week} description="Чтобы просто начать 👍🏻"/>
             <Card data={data.month} description="Привести тело впорядок 💪🏻"/>
             <Card data={data.threeMonths} description="Изменить образ жизни 🔥"/>
-            {/* <Card data={data.forever} description="Всегда быть в форме и поддерживать своё здоровье ⭐️"/> */}
+            <Card data={data.forever} description="Всегда быть в форме и поддерживать своё здоровье ⭐️" isHorizontal={true}/>
           </div>
         </section>
       </main>
