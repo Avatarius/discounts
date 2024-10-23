@@ -47,7 +47,7 @@ function App() {
           Выберите подходящий тарифный план
         </h1>
         <section className="flex gap-[79px]">
-          <img src={man} alt="man" />
+          <img src={man} alt="man" className="object-contain mb-img"/>
           <Info data={data}/>
         </section>
       </main>
