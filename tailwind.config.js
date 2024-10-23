@@ -17,6 +17,7 @@ module.exports = {
         'card-title': ['30px', {fontWeight: 400, lineHeight: 1}],
         'card-title-horizontal': ['38px', {fontWeight: 400, lineHeight: 1}],
         'card-discount': ['50px', {fontWeight: 700, lineHeight: 1.1, letterSpacing: '-0.04em'}],
+        'card-discount-horizontal': ['50px', {fontWeight: 700, lineHeight: 1.0, letterSpacing: '-0.04em'}],
         'card-no-discount': ['24px', {fontWeight: 500, lineHeight: 1.1}],
         'card-description': ['16px', {fontWeight: 500, lineHeight: 1.3}]
       },
@@ -33,15 +34,18 @@ module.exports = {
       padding: {
         'header': '8px 69px 14px 0',
         'card': '45px 0 26px 0',
-        'card-horizontal': '0 0 0 0',
+        'card-horizontal': '0 0 21px 19px',
         'card-title': '32px',
         'card-discount': '6px',
-        'card-no-discount': '36px'
+        'card-no-discount': '0px'
       },
       margin: {
-        'card-title': '20px',
-        'card-discount': '-1px',
-        'card-no-discount': '18px'
+        'card-title': '0px 31px 20px 0px',
+        'card-title-horizontal': '10px',
+        'card-price': '0 0 18px 0',
+        'card-price-horizontal': '25px 57px 0 10px',
+        'card-discount': '0px',
+        'card-description-horizontal': '32px'
       },
       inset: {
         'timer': 'calc(100% - 6px) 0'
