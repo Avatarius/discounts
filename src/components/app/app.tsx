@@ -1,6 +1,5 @@
 import { Timer } from "../timer/timer";
 import man from "../../images/man.png";
-import { Card } from "../card/card";
 import { useEffect, useState } from "react";
 import { IData, IRate } from "../../utils/types";
 import { Info } from "../info/info";
@@ -43,7 +42,7 @@ function App() {
         </span>
         <Timer />
       </header>
-      <main className="px-[171px]">
+      <main className="px-[171px] max-w-[1440px]">
         <h1 className="font-rubik text-heading text-center uppercase tracking-[0.01em] mb-[90px]">
           Выберите подходящий тарифный план
         </h1>
