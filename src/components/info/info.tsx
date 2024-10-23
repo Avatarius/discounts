@@ -2,6 +2,7 @@ import { useState } from "react";
 import { IData } from "../../utils/types";
 import { Card } from "../card/card";
 import { Checkbox } from "../checkbox/checkbox";
+import { Button } from "../button/button";
 
 interface IInfoProps {
   data: IData;
@@ -26,14 +27,29 @@ function Info({ data }: IInfoProps) {
         за 1 месяц
       </p>
       <div className="flex items-center gap-[12px] mt-checkbox-container">
-        <Checkbox areRulesAccepeted={areRulesAccepeted} handleChange={() => setAreRulesAccepeted(prev => !prev)}/>
+        <Checkbox
+          areRulesAccepeted={areRulesAccepeted}
+          handleChange={() => setAreRulesAccepeted((prev) => !prev)}
+        />
         <p className="font-['pt-root-ui'] text-checkbox-text max-w-[400px] tracking-[0.07px]">
           Я соглашаюсь с{" "}
-          <span className="text-checkbox-link cursor-pointer">Правилами сервиса</span> и
-          условиями <span className="text-checkbox-link cursor-pointer">Публичной оферты</span>
+          <span className="text-checkbox-link cursor-pointer">
+            Правилами сервиса
+          </span>{" "}
+          и условиями{" "}
+          <span className="text-checkbox-link cursor-pointer">
+            Публичной оферты
+          </span>
           .
         </p>
       </div>
+      <Button />
+      <p className="font-['pt-root-ui'] text-warning mt-warning">
+        Нажимая «Купить», Пользователь соглашается на автоматическое списание
+        денежных средств по истечению купленного периода. Дальнейшие списания по
+        тарифам участвующим в акции осуществляются по полной стоимости согласно
+        оферте.
+      </p>
     </div>
   );
 }

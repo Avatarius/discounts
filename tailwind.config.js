@@ -28,6 +28,8 @@ module.exports = {
         "card-description": ["16px", { fontWeight: 500, lineHeight: 1.3 }],
         text: ["18px", { fontWeight: 500, lineHeight: 1.3 }],
         "checkbox-text": ["16px", { fontWeight: 400, lineHeight: 1.1 }],
+        button: ['20px', {fontWeight: 500, lineHeight: 1}],
+        warning: ['14px', {fontWeight: 400, lineHeight: 1.34}]
       },
       colors: {
         background: "#f5f7f7",
@@ -40,7 +42,10 @@ module.exports = {
         "card-description": "#2f4353",
         checkbox: "#01b9c5",
         "checkbox-text": '#818798',
-        "checkbox-link": "#2d97f9"
+        "checkbox-link": "#2d97f9",
+        button: '#fff',
+        'button-background': "#fd4d35",
+        warning: '#818798'
       },
       padding: {
         header: "8px 69px 14px 0",
@@ -48,6 +53,7 @@ module.exports = {
         "card-horizontal": "26px 0 21px 28px",
         "card-title": "32px",
         "card-discount": "6px",
+        button: "28px 99px"
       },
       margin: {
         "card-title": "25px",
@@ -55,7 +61,9 @@ module.exports = {
         "card-price": "21px",
         "card-price-horizontal": "59px",
         "card-description-horizontal": "11px",
-        "checkbox-container": '26px'
+        "checkbox-container": '26px',
+        button: '50px',
+        warning: '30px'
       },
       inset: {
         timer: "calc(100% - 6px) 0",
@@ -63,6 +71,7 @@ module.exports = {
       borderRadius: {
         card: "20px",
         checkbox: "4.8px",
+        button: "60px"
       },
       borderWidth: {
         card: "2px",
