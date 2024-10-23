@@ -1,5 +1,6 @@
 import clsx from "clsx";
 import { IRate } from "../../utils/types";
+import star from "../../images/Star.png";
 
 interface ICardProps {
   data: IRate[];
@@ -14,7 +15,10 @@ function Card(props: ICardProps) {
     "flex",
     "rounded-card",
     "border-card",
-    isHorizontal ? "col-span-3 mt-[36px] p-card-horizontal items-start" : "flex-col p-card items-center"
+    "relative",
+    isHorizontal
+      ? "col-span-3 mt-[36px] p-card-horizontal items-start"
+      : "flex-col p-card items-center"
   );
   const titleClassList = clsx(
     "font-BebasNeueCyrillic",
@@ -30,18 +34,28 @@ function Card(props: ICardProps) {
   const discountClassList = clsx(
     "font-['pt-root-ui']",
     "tracking-[-2px]",
-    isHorizontal ?
-    "text-card-discount-horizontal" :
-    'text-card-discount'
+    isHorizontal ? "text-card-discount-horizontal" : "text-card-discount"
   );
-  const noDiscountClassList = clsx(
-    "text-card-no-discount",
-    "self-end",
-  );
+  const noDiscountClassList = clsx("text-card-no-discount", "self-end");
   const descriptionClassList = clsx(
     "text-card-description",
-    isHorizontal ? 'mt-card-description-horizontal text-left max-w-[165px]' : "max-w-[120px] text-center"
+    isHorizontal
+      ? "mt-card-description-horizontal text-left max-w-[165px]"
+      : "max-w-[120px] text-center"
   );
+  const starClassList = clsx(
+    "bg-[url('../images/Star.png')]",
+    "bg-no-repeat",
+    "w-[70px]",
+    "h-[70px]",
+    "absolute",
+    "right-[2px]",
+    "top-[7px] translate-y-[-50%]",
+    "flex",
+    "justify-center",
+    'items-center'
+  );
+  const starTextClassList = clsx("block", "font-['pt-root-ui'] text-star");
   return (
     <article className={cardClassList}>
       <h2 className={titleClassList}>{disountData.name}</h2>
@@ -50,6 +64,9 @@ function Card(props: ICardProps) {
         <p className={noDiscountClassList}>{noDiscountData.price}₽</p>
       </div>
       <p className={descriptionClassList}>{description}</p>
+      <div className={starClassList}>
+        <span className={starTextClassList}>-30%</span>
+      </div>
     </article>
   );
 }

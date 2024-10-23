@@ -30,6 +30,7 @@ module.exports = {
         "checkbox-text": ["16px", { fontWeight: 400, lineHeight: 1.1 }],
         button: ["20px", { fontWeight: 500, lineHeight: 1 }],
         warning: ["14px", { fontWeight: 400, lineHeight: 1.34 }],
+        star: ['18px', {fontWeight: 500, lineHeight: 1.3}]
       },
       colors: {
         background: "#f5f7f7",
@@ -46,6 +47,7 @@ module.exports = {
         button: "#fff",
         "button-background": "#fd4d35",
         warning: "#818798",
+        star: '#fff'
       },
       padding: {
         header: "8px 69px 14px 0",
