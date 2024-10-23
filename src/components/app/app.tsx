@@ -3,6 +3,7 @@ import man from "../../images/man.png";
 import { Card } from "../card/card";
 import { useEffect, useState } from "react";
 import { IData, IRate } from "../../utils/types";
+import { Info } from "../info/info";
 
 function App() {
   const [data, setData] = useState<IData | null>(null);
@@ -48,12 +49,7 @@ function App() {
         </h1>
         <section className="flex gap-[79px]">
           <img src={man} alt="man" />
-          <div className="grid grid-cols-3 content-start gap-x-[12px] grow">
-            <Card data={data.week} description="Чтобы просто начать 👍🏻"/>
-            <Card data={data.month} description="Привести тело впорядок 💪🏻"/>
-            <Card data={data.threeMonths} description="Изменить образ жизни 🔥"/>
-            <Card data={data.forever} description="Всегда быть в форме и поддерживать своё здоровье ⭐️" isHorizontal={true}/>
-          </div>
+          <Info data={data}/>
         </section>
       </main>
     </>
