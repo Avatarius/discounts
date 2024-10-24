@@ -26,6 +26,9 @@ module.exports = {
         ],
         "card-no-discount": ["24px", { fontWeight: 500, lineHeight: 1 }],
         "card-description": ["16px", { fontWeight: 500, lineHeight: 1.3 }],
+        "card-mini-title": ["26px", {fontWeight: 400, lineHeight: 1}],
+        "card-mini-no-discount": ["20px", {fontWeight: 700, lineHeight: 1.1}],
+        "card-mini-discount": ["46px", {fontWeight: 700, lineHeight: 1.1}],
         text: ["18px", { fontWeight: 500, lineHeight: 1.3 }],
         "checkbox-text": ["16px", { fontWeight: 400, lineHeight: 1.1 }],
         button: ["20px", { fontWeight: 500, lineHeight: 1 }],
@@ -45,6 +48,8 @@ module.exports = {
         "card-discount": "#2d3242",
         "card-no-discount": "#95979f",
         "card-description": "#2f4353",
+        "card-mini": "#2d3242",
+        "card-mini-no-discount": "rgba(45, 50, 66, 0.7)",
         checkbox: "#01b9c5",
         "checkbox-text": "#818798",
         "checkbox-link": "#2d97f9",
@@ -62,8 +67,10 @@ module.exports = {
         "card-horizontal": "26px 0 21px 28px",
         "card-title": "32px",
         "card-discount": "6px",
+        "card-mini": "20px 22px 20px 26px",
         button: "28px 99px",
-        modal: "61px 40px 40px",
+        "button-modal": "20px 42px 22px",
+        modal: "55px 40px 40px",
         "modal-discount": '12px 28px 16px 30px'
       },
       margin: {
@@ -83,19 +90,28 @@ module.exports = {
         "dots-y-before": "16px",
         "dots-y-after": "26px",
       },
+      translate: {
+        "modal-x": "calc(-50%)",
+        "modal-y": "calc(-50% + 7px)"
+      },
       borderRadius: {
         card: "20px",
         checkbox: "4.8px",
         button: "60px",
         dots: "100px",
+        "card-mini": "20px",
         "modal-discount": "30px"
       },
       borderWidth: {
         card: "2px",
-        "modal-discount": "1.5px"
+        "card-mini": "2px",
+        "modal-discount": "1.5px",
+        "modal-checkbox": "1.5px"
       },
       borderColor: {
         card: "#01b9c5",
+        "card-mini": "#e7eaf1",
+        "modal-checkbox": "#555965"
       },
     },
   },

@@ -62,7 +62,7 @@ function Info({ data, timeInSeconds }: IInfoProps) {
           .
         </p>
       </div>
-      <Button />
+      <Button text="Купить" additionalClasses="mt-[50px]"/>
       <p className="font-['pt-root-ui'] text-warning mt-warning">
         Нажимая «Купить», Пользователь соглашается на автоматическое списание
         денежных средств по истечению купленного периода. Дальнейшие списания по
