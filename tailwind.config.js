@@ -35,6 +35,7 @@ module.exports = {
       colors: {
         background: "#f5f7f7",
         "timer-digits": "#01b9c5",
+        "timer-completed-digits": "#fd4d35",
         "timer-letters": "#818798",
         "card-title": "#687078",
         "card-title-horizontal": "#2d3242",

@@ -1,6 +1,10 @@
 import clsx from "clsx";
 
-function Timer() {
+interface ITimerProps {
+  timeInSeconds: number;
+}
+
+function Timer({timeInSeconds} : ITimerProps) {
   const containerClassList = clsx(
     "flex",
     "gap-[28px]",
@@ -22,16 +26,25 @@ function Timer() {
     "after:inset-y-dots-y-after",
     "after:rounded-dots"
   );
+  const numberClassList = clsx("block" ,"text-timer-digits", "font-BebasNeue" ,"relative", timeInSeconds <= 30 && 'text-timer-completed-digits');
+  const seconds = timeInSeconds % 60;
+  const minutes = Math.floor((timeInSeconds % 3600) / 60);
+
+  function padNumber(num: number) {
+    return String(num).padStart(2, '0');
+  }
+
+
   return (
     <div className={containerClassList}>
-      <span className="block text-timer-digits font-BebasNeue relative">
-        09
+      <span className={numberClassList}>
+        {padNumber(minutes)}
         <span className="block text-timer-letters absolute inset-timer">
           минут
         </span>
       </span>
-      <span className="block text-timer-digits font-BebasNeue relative">
-        59
+      <span className={numberClassList}>
+        {padNumber(seconds)}
         <span className="block text-timer-letters absolute inset-timer">
           секунд
         </span>

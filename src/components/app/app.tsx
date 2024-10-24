@@ -6,7 +6,9 @@ import { Info } from "../info/info";
 
 function App() {
   const [data, setData] = useState<IData | null>(null);
+  const [timer, setTimer] = useState<number>(60);
   useEffect(() => {
+    // fetch data
     fetch("https://t-pay.iqfit.app/subscribe/list-test")
       .then((res) => {
         if (res.ok) {
@@ -28,6 +30,21 @@ function App() {
       .catch((err) => {
         console.error("Error status:", err);
       });
+      //timer
+      const timerId = setTimeout(function tick() {
+        // setTimeout()
+        setTimer(prev => {
+          if (prev === 0) {
+            clearInterval(timerId);
+          } else {
+            return prev - 1;
+          }
+          return prev;
+        });
+
+        setTimeout(tick, 1000);
+      }, 1000)
+      return () => clearInterval(timerId);
   }, []);
 
   if (!data) {
@@ -40,9 +57,9 @@ function App() {
         <span className="block font-['pt-root-ui'] text-base self-center mr-[24px]">
           Скидка действует:
         </span>
-        <Timer />
+        <Timer timeInSeconds={timer}/>
       </header>
-      <main className="px-[171px] max-w-[1440px]">
+      <main className="px-[171px]">
         <h1 className="font-rubik text-heading text-center uppercase tracking-[0.01em] mb-[90px]">
           Выберите подходящий тарифный план
         </h1>
