@@ -30,12 +30,12 @@ module.exports = {
         "checkbox-text": ["16px", { fontWeight: 400, lineHeight: 1.1 }],
         button: ["20px", { fontWeight: 500, lineHeight: 1 }],
         warning: ["14px", { fontWeight: 400, lineHeight: 1.34 }],
-        star: ['18px', {fontWeight: 500, lineHeight: 1.3}]
+        star: ["18px", { fontWeight: 500, lineHeight: 1.3 }],
       },
       colors: {
         background: "#f5f7f7",
-        "timer-digits": "#01b9c5",
-        "timer-completed-digits": "#fd4d35",
+        "timer-digits": "var(--timer-color, #01B9C5)",
+        "timer-30-digits": "FD4D35",
         "timer-letters": "#818798",
         "card-title": "#687078",
         "card-title-horizontal": "#2d3242",
@@ -48,8 +48,8 @@ module.exports = {
         button: "#fff",
         "button-background": "#fd4d35",
         warning: "#818798",
-        star: '#fff',
-        dots: '#01b9c5'
+        star: "#fff",
+        dots: "var(--timer-color, #01B9C5)",
       },
       padding: {
         header: "6px 69px 14px 0",
@@ -74,14 +74,13 @@ module.exports = {
         timer: "calc(100% - 6px) 0",
         "dots-x": "calc(50% - 1px)",
         "dots-y-before": "16px",
-        "dots-y-after": "26px"
-
+        "dots-y-after": "26px",
       },
       borderRadius: {
         card: "20px",
         checkbox: "4.8px",
         button: "60px",
-        dots: '100px'
+        dots: "100px",
       },
       borderWidth: {
         card: "2px",

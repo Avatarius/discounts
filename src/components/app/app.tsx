@@ -6,7 +6,7 @@ import { Info } from "../info/info";
 
 function App() {
   const [data, setData] = useState<IData | null>(null);
-  const [timer, setTimer] = useState<number>(60);
+  const [timer, setTimer] = useState<number>(35);
   useEffect(() => {
     // fetch data
     fetch("https://t-pay.iqfit.app/subscribe/list-test")

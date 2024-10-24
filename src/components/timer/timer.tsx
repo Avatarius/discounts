@@ -1,10 +1,32 @@
 import clsx from "clsx";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { useRef } from "react";
+
+gsap.registerPlugin(useGSAP);
 
 interface ITimerProps {
   timeInSeconds: number;
 }
 
-function Timer({timeInSeconds} : ITimerProps) {
+function Timer({ timeInSeconds }: ITimerProps) {
+  const timerContainerRef = useRef<HTMLDivElement | null>(null);
+  useGSAP(
+    () => {
+      if (timeInSeconds <= 30) {
+        const timeline = gsap.timeline();
+        timeline
+          .to(timerContainerRef.current, { "--timer-color": "#fd4d35" })
+          .to(timerContainerRef.current, { autoAlpha: 0 })
+          .to(timerContainerRef.current, { autoAlpha: 1 }, ">");
+      }
+    },
+    { scope: timerContainerRef, dependencies: [timeInSeconds] }
+  );
+
+  const seconds = timeInSeconds % 60;
+  const minutes = Math.floor((timeInSeconds % 3600) / 60);
+
   const containerClassList = clsx(
     "flex",
     "gap-[28px]",
@@ -26,17 +48,20 @@ function Timer({timeInSeconds} : ITimerProps) {
     "after:inset-y-dots-y-after",
     "after:rounded-dots"
   );
-  const numberClassList = clsx("block" ,"text-timer-digits", "font-BebasNeue" ,"relative", timeInSeconds <= 30 && 'text-timer-completed-digits');
-  const seconds = timeInSeconds % 60;
-  const minutes = Math.floor((timeInSeconds % 3600) / 60);
+  const numberClassList = clsx(
+    "block",
+    "text-timer-digits",
+    "font-BebasNeue",
+    "relative",
+    timeInSeconds <= 30 && "text-timer-completed-digits"
+  );
 
   function padNumber(num: number) {
-    return String(num).padStart(2, '0');
+    return String(num).padStart(2, "0");
   }
 
-
   return (
-    <div className={containerClassList}>
+    <div className={containerClassList} ref={timerContainerRef} id="timer">
       <span className={numberClassList}>
         {padNumber(minutes)}
         <span className="block text-timer-letters absolute inset-timer">
