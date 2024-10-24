@@ -3,6 +3,7 @@ import man from "../../images/man.png";
 import { useEffect, useState } from "react";
 import { IData, IRate } from "../../utils/types";
 import { Info } from "../info/info";
+import { Modal } from "../modal/modal";
 
 function App() {
   const [data, setData] = useState<IData | null>(null);
@@ -68,6 +69,7 @@ function App() {
           <Info data={data} timeInSeconds={timer}/>
         </section>
       </main>
+      <Modal/>
     </>
   );
 }

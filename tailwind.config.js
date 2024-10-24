@@ -31,9 +31,12 @@ module.exports = {
         button: ["20px", { fontWeight: 500, lineHeight: 1 }],
         warning: ["14px", { fontWeight: 400, lineHeight: 1.34 }],
         star: ["18px", { fontWeight: 500, lineHeight: 1.3 }],
+        "modal-title": ['30px', {fontWeight: 700, lineHeight: 1.3}],
+        "modal-text": ['24px', {fontWeight: 500, lineHeight: 1.3}]
       },
       colors: {
         background: "#f5f7f7",
+        "accent": "#01b9c5",
         "timer-digits": "var(--timer-color, #01B9C5)",
         "timer-30-digits": "FD4D35",
         "timer-letters": "#818798",
@@ -50,6 +53,8 @@ module.exports = {
         warning: "#818798",
         star: "#fff",
         dots: "var(--timer-color, #01B9C5)",
+        "modal-bg": "#f5f7f7",
+        "modal-title": "#12191d"
       },
       padding: {
         header: "6px 69px 14px 0",
@@ -58,6 +63,8 @@ module.exports = {
         "card-title": "32px",
         "card-discount": "6px",
         button: "28px 99px",
+        modal: "61px 40px 40px",
+        "modal-discount": '12px 28px 16px 30px'
       },
       margin: {
         img: "44px",
@@ -81,9 +88,11 @@ module.exports = {
         checkbox: "4.8px",
         button: "60px",
         dots: "100px",
+        "modal-discount": "30px"
       },
       borderWidth: {
         card: "2px",
+        "modal-discount": "1.5px"
       },
       borderColor: {
         card: "#01b9c5",
