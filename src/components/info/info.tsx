@@ -1,25 +1,44 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { IData } from "../../utils/types";
 import { Card } from "../card/card";
 import { Checkbox } from "../checkbox/checkbox";
 import { Button } from "../button/button";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+
+gsap.registerPlugin(useGSAP);
 
 interface IInfoProps {
   data: IData;
+  timeInSeconds: number;
 }
 
-function Info({ data }: IInfoProps) {
+function Info({ data, timeInSeconds }: IInfoProps) {
   const [areRulesAccepeted, setAreRulesAccepeted] = useState(false);
+  const cardsContainerRef = useRef<HTMLDivElement | null>(null);
+
+  useGSAP(() => {
+    if (timeInSeconds === 0) {
+      const timeline = gsap.timeline();
+      timeline.to('.card .card__no-discount', {x: -150, duration: 0.3, ease: 'power1'})
+      .addLabel('start')
+      .to('.card .card__no-discount', {scaleY: 0, duration: 0.1, ease: 'power1'}, '<')
+      .to('.card .card__no-discount', {autoAlpha: 0, duration: 0.05, delay: 0.1}, '<')
+      .to('.card .card__star', {autoAlpha: 0, duration: 0.2}, 'start')
+    }
+  }, {scope: cardsContainerRef, dependencies: [timeInSeconds]})
+
   return (
     <div>
-      <div className="grid grid-cols-3 content-start gap-x-[12px] grow">
-        <Card data={data.week} description="Чтобы просто начать 👍🏻" />
-        <Card data={data.month} description="Привести тело впорядок 💪🏻" />
-        <Card data={data.threeMonths} description="Изменить образ жизни 🔥" />
+      <div className="grid grid-cols-3 content-start gap-x-[12px] grow" ref={cardsContainerRef}>
+        <Card data={data.week} description="Чтобы просто начать 👍🏻" timeInSeconds={timeInSeconds}/>
+        <Card data={data.month} description="Привести тело впорядок 💪🏻" timeInSeconds={timeInSeconds}/>
+        <Card data={data.threeMonths} description="Изменить образ жизни 🔥" timeInSeconds={timeInSeconds}/>
         <Card
           data={data.forever}
           description="Всегда быть в форме и поддерживать своё здоровье ⭐️"
           isHorizontal={true}
+          timeInSeconds={timeInSeconds}
         />
       </div>
       <p className="font-['pt-root-ui'] text-text mt-[15px]">

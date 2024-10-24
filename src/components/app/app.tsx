@@ -6,7 +6,7 @@ import { Info } from "../info/info";
 
 function App() {
   const [data, setData] = useState<IData | null>(null);
-  const [timer, setTimer] = useState<number>(35);
+  const [timer, setTimer] = useState<number>(3);
   useEffect(() => {
     // fetch data
     fetch("https://t-pay.iqfit.app/subscribe/list-test")
@@ -65,7 +65,7 @@ function App() {
         </h1>
         <section className="flex gap-[79px]">
           <img src={man} alt="man" className="object-contain mb-img"/>
-          <Info data={data}/>
+          <Info data={data} timeInSeconds={timer}/>
         </section>
       </main>
     </>
