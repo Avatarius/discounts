@@ -36,7 +36,7 @@ function App() {
 
   return (
     <>
-      <header className="flex justify-center bg-white mb-[17px] p-header">
+      <header className="flex justify-center bg-white mb-[19px] p-header">
         <span className="block font-['pt-root-ui'] text-base self-center mr-[24px]">
           Скидка действует:
         </span>

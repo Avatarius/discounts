@@ -47,10 +47,11 @@ module.exports = {
         button: "#fff",
         "button-background": "#fd4d35",
         warning: "#818798",
-        star: '#fff'
+        star: '#fff',
+        dots: '#01b9c5'
       },
       padding: {
-        header: "8px 69px 14px 0",
+        header: "6px 69px 14px 0",
         card: "43px 29px 26px",
         "card-horizontal": "26px 0 21px 28px",
         "card-title": "32px",
@@ -70,11 +71,16 @@ module.exports = {
       },
       inset: {
         timer: "calc(100% - 6px) 0",
+        "dots-x": "calc(50% - 1px)",
+        "dots-y-before": "16px",
+        "dots-y-after": "26px"
+
       },
       borderRadius: {
         card: "20px",
         checkbox: "4.8px",
         button: "60px",
+        dots: '100px'
       },
       borderWidth: {
         card: "2px",
