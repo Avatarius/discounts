@@ -25,7 +25,7 @@ function Card(props: ICardProps) {
     "flex",
     "rounded-card",
     "relative",
-    active ? "border-card border-[#01b9c5] bg-card-active" : "border-card",
+    active ? "border-card-active bg-card-active" : "border-card",
     isHorizontal
       ? "col-span-3 mt-[36px] p-card-horizontal items-start"
       : "flex-col p-card items-center",

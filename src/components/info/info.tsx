@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { IData, IRate } from "../../utils/types";
+import { IData } from "../../utils/types";
 import { Card } from "../card/card";
 import { Checkbox } from "../checkbox/checkbox";
 import { Button } from "../button/button";
@@ -61,21 +61,21 @@ function Info({ data, timeInSeconds }: IInfoProps) {
           description="Чтобы просто начать 👍🏻"
           timeInSeconds={timeInSeconds}
           active={cardActive[0]}
-          handleClick={() => setCardActive([true, false, false ,false])}
+          handleClick={() => setCardActive([true, false, false, false])}
         />
         <Card
           data={data.month}
           description="Привести тело впорядок 💪🏻"
           timeInSeconds={timeInSeconds}
           active={cardActive[1]}
-          handleClick={() => setCardActive([false, true, false ,false])}
+          handleClick={() => setCardActive([false, true, false, false])}
         />
         <Card
           data={data.threeMonths}
           description="Изменить образ жизни 🔥"
           timeInSeconds={timeInSeconds}
           active={cardActive[2]}
-          handleClick={() => setCardActive([false, false, true ,false])}
+          handleClick={() => setCardActive([false, false, true, false])}
         />
         <Card
           data={data.forever}
@@ -83,7 +83,7 @@ function Info({ data, timeInSeconds }: IInfoProps) {
           isHorizontal={true}
           timeInSeconds={timeInSeconds}
           active={cardActive[3]}
-          handleClick={() => setCardActive([false, false, false ,true])}
+          handleClick={() => setCardActive([false, false, false, true])}
         />
       </div>
       <p className="font-['pt-root-ui'] text-text mt-[15px]">

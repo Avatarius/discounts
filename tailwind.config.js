@@ -108,13 +108,13 @@ module.exports = {
       },
       borderWidth: {
         card: "2px",
-        "card-mini": "2px",
+        'card-active': "2px",
         "modal-discount": "1.5px",
         "modal-checkbox": "1.5px",
       },
       borderColor: {
         card: "#e7eaf1",
-        "card-mini": "#e7eaf1",
+        "card-active": '#01b9c5',
         "modal-checkbox": "#555965",
       },
     },

@@ -69,7 +69,7 @@ function App() {
           <Info data={data} timeInSeconds={timer}/>
         </section>
       </main>
-      {/* <Modal data={data}/> */}
+      <Modal data={data}/>
     </>
   );
 }

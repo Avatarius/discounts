@@ -4,6 +4,7 @@ import { IData } from "../../utils/types";
 import { Button } from "../button/button";
 import clsx from "clsx";
 import { before } from "node:test";
+import { useState } from "react";
 
 interface IModalProps {
   data: IData;
@@ -34,6 +35,7 @@ function Modal({ data }: IModalProps) {
     "before:top-[0]",
     "before:left-[43px]"
   );
+  const [cardActive, setCardActive] = useState([true, false, false]);
   return createPortal(
     <div className={modalClassList}>
       <h3 className="uppercase font-rubik text-modal-title bg-modal-bg mb-[28px]">
@@ -51,9 +53,9 @@ function Modal({ data }: IModalProps) {
           Посмотри, что мы для тебя приготовили 🔥
         </p>
         <div className="flex gap-[20px] justify-between">
-          <CardModal data={data.week} />
-          <CardModal data={data.month} />
-          <CardModal data={data.threeMonths} />
+          <CardModal data={data.week} active={cardActive[0]} handleClick={() => setCardActive([true, false, false])}/>
+          <CardModal data={data.month} active={cardActive[1]} handleClick={() => setCardActive([false, true, false])}/>
+          <CardModal data={data.threeMonths} active={cardActive[2]} handleClick={() => setCardActive([false, false, true])}/>
         </div>
       </div>
       <Button
