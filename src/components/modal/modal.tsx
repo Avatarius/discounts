@@ -10,11 +10,17 @@ interface IModalProps {
   data: IData;
   handleClose: () => void;
   handleButtonClick: () => void;
+  isBiggerDiscounts: boolean;
 }
 
 const modalRoot = document.getElementById("modal");
 
-function Modal({ data, handleClose, handleButtonClick }: IModalProps) {
+function Modal({
+  data,
+  handleClose,
+  handleButtonClick,
+  isBiggerDiscounts,
+}: IModalProps) {
   const modalClassList = clsx(
     "fixed",
     "top-[50%]",
@@ -56,9 +62,24 @@ function Modal({ data, handleClose, handleButtonClick }: IModalProps) {
           Посмотри, что мы для тебя приготовили 🔥
         </p>
         <div className="flex gap-[20px] justify-between">
-          <CardModal data={data.week} active={cardActive[0]} handleClick={() => setCardActive([true, false, false])}/>
-          <CardModal data={data.month} active={cardActive[1]} handleClick={() => setCardActive([false, true, false])}/>
-          <CardModal data={data.threeMonths} active={cardActive[2]} handleClick={() => setCardActive([false, false, true])}/>
+          <CardModal
+            data={data.week}
+            active={cardActive[0]}
+            handleClick={() => setCardActive([true, false, false])}
+            isBiggerDiscounts={isBiggerDiscounts}
+          />
+          <CardModal
+            data={data.month}
+            active={cardActive[1]}
+            handleClick={() => setCardActive([false, true, false])}
+            isBiggerDiscounts={isBiggerDiscounts}
+          />
+          <CardModal
+            data={data.threeMonths}
+            active={cardActive[2]}
+            handleClick={() => setCardActive([false, false, true])}
+            isBiggerDiscounts={isBiggerDiscounts}
+          />
         </div>
       </div>
       <Button
@@ -69,7 +90,10 @@ function Modal({ data, handleClose, handleButtonClick }: IModalProps) {
           handleClose();
         }}
       />
-      <button className="absolute bg-[url('../images/close.png')] w-[24px] h-[24px] right-[20px] top-[23px] cursor-pointer" onClick={handleClose}></button>
+      <button
+        className="absolute bg-[url('../images/close.png')] w-[24px] h-[24px] right-[20px] top-[23px] cursor-pointer"
+        onClick={handleClose}
+      ></button>
     </div>,
     modalRoot!
   );

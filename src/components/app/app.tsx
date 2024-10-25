@@ -22,7 +22,8 @@ function App() {
       })
       .then((res: IRate[]) => {
         const groupedObject = Object.groupBy(res, ({ name }) => name);
-        const [week, month, threeMonths, forever] = (Object.values(groupedObject));
+        const [week, month, threeMonths, forever] =
+          Object.values(groupedObject);
         setData({
           week: week ?? [],
           month: month ?? [],
@@ -33,21 +34,21 @@ function App() {
       .catch((err) => {
         console.error("Error status:", err);
       });
-      //timer
-      const timerId = setTimeout(function tick() {
-        // setTimeout()
-        setTimer(prev => {
-          if (prev === 0) {
-            clearInterval(timerId);
-          } else {
-            return prev - 1;
-          }
-          return prev;
-        });
+    //timer
+    const timerId = setTimeout(function tick() {
+      // setTimeout()
+      setTimer((prev) => {
+        if (prev === 0) {
+          clearInterval(timerId);
+        } else {
+          return prev - 1;
+        }
+        return prev;
+      });
 
-        setTimeout(tick, 1000);
-      }, 1000)
-      return () => clearInterval(timerId);
+      setTimeout(tick, 1000);
+    }, 1000);
+    return () => clearInterval(timerId);
   }, []);
 
   useEffect(() => {
@@ -56,7 +57,7 @@ function App() {
         setIsModalOpen(true);
       }, 1000);
     }
-  }, [timer])
+  }, [timer]);
 
   if (!data) {
     return null;
@@ -68,19 +69,29 @@ function App() {
         <span className="block font-['pt-root-ui'] text-base self-center mr-[24px]">
           Скидка действует:
         </span>
-        <Timer timeInSeconds={timer}/>
+        <Timer timeInSeconds={timer} />
       </header>
       <main className="px-[171px]">
         <h1 className="font-rubik text-heading text-center uppercase tracking-[0.01em] mb-[90px]">
           Выберите подходящий тарифный план
         </h1>
         <section className="flex gap-[79px]">
-          <img src={man} alt="man" className="object-contain mb-img"/>
-          <Info data={data} timeInSeconds={timer} isBiggerDiscounts={isBiggerDiscounts}/>
+          <img src={man} alt="man" className="object-contain mb-img" />
+          <Info
+            data={data}
+            timeInSeconds={timer}
+            isBiggerDiscounts={isBiggerDiscounts}
+          />
         </section>
       </main>
-      {isModalOpen && <Modal data={data} handleClose={() => setIsModalOpen(false)} handleButtonClick={() => setIsBiggerDiscount(true)}/>}
-
+      {isModalOpen && (
+        <Modal
+          data={data}
+          handleClose={() => setIsModalOpen(false)}
+          handleButtonClick={() => setIsBiggerDiscount(true)}
+          isBiggerDiscounts={isBiggerDiscounts}
+        />
+      )}
     </>
   );
 }

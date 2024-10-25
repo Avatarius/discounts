@@ -6,9 +6,15 @@ interface ICardProps {
   data: IRate[];
   active: boolean;
   handleClick: () => void;
+  isBiggerDiscounts: boolean;
 }
 
-function CardModal({ data, active, handleClick }: ICardProps) {
+function CardModal({
+  data,
+  active,
+  handleClick,
+  isBiggerDiscounts,
+}: ICardProps) {
   const [disountData, noDiscountData, biggerDiscountData] = data;
   const cardClassList = clsx(
     "flex",
@@ -18,7 +24,7 @@ function CardModal({ data, active, handleClick }: ICardProps) {
     "border-card",
     "rounded-card-mini",
     "relative",
-    active ? "border-card-active bg-card-active" : "border-card",
+    active ? "border-card-active bg-card-active" : "border-card"
   );
   const checkboxClassList = clsx(
     "w-[22px]",
@@ -50,7 +56,13 @@ function CardModal({ data, active, handleClick }: ICardProps) {
         {biggerDiscountData.price}₽
       </p>
       {/* <p className="right-0"></p> */}
-      <Star additionalClasses="w-[50px] h-[50px] bottom-[33px] right-[3px]"/>
+      <Star
+        additionalClasses="w-[50px] h-[50px] bottom-[33px] right-[3px]"
+        defaultPrice={noDiscountData.price}
+        discountedPrice={
+          isBiggerDiscounts ? biggerDiscountData.price : disountData.price
+        }
+      />
     </article>
   );
 }

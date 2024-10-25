@@ -110,7 +110,7 @@ function Card(props: ICardProps) {
         <p className={noDiscountClassList}>{noDiscountData.price}₽</p>
       </div>
       <p className={descriptionClassList}>{description}</p>
-      <Star additionalClasses="right-[3px] top-[5px] translate-y-[-50%]"/>
+      <Star additionalClasses="right-[3px] top-[5px] translate-y-[-50%]" defaultPrice={noDiscountData.price} discountedPrice={isBiggerDiscounts ? biggerDiscountData.price : disountData.price}/>
     </article>
   );
 }
