@@ -8,6 +8,7 @@ import { Modal } from "../modal/modal";
 function App() {
   const [data, setData] = useState<IData | null>(null);
   const [timer, setTimer] = useState<number>(3);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   useEffect(() => {
     // fetch data
     fetch("https://t-pay.iqfit.app/subscribe/list-test")
@@ -48,6 +49,14 @@ function App() {
       return () => clearInterval(timerId);
   }, []);
 
+  useEffect(() => {
+    if (timer === 0) {
+      setTimeout(() => {
+        setIsModalOpen(true);
+      }, 1000);
+    }
+  }, [timer])
+
   if (!data) {
     return null;
   }
@@ -69,7 +78,8 @@ function App() {
           <Info data={data} timeInSeconds={timer}/>
         </section>
       </main>
-      <Modal data={data}/>
+      {isModalOpen && <Modal data={data} handleClose={() => setIsModalOpen(false)}/>}
+
     </>
   );
 }

@@ -8,11 +8,12 @@ import { useState } from "react";
 
 interface IModalProps {
   data: IData;
+  handleClose: () => void;
 }
 
 const modalRoot = document.getElementById("modal");
 
-function Modal({ data }: IModalProps) {
+function Modal({ data, handleClose }: IModalProps) {
   const modalClassList = clsx(
     "fixed",
     "top-[50%]",
@@ -33,12 +34,13 @@ function Modal({ data }: IModalProps) {
     "before:p-modal-before",
     "before:inset-modal-before",
     "before:top-[0]",
-    "before:left-[43px]"
+    "before:left-[43px]",
+    "backdrop:bg-red"
   );
   const [cardActive, setCardActive] = useState([true, false, false]);
   return createPortal(
     <div className={modalClassList}>
-      <h3 className="uppercase font-rubik text-modal-title bg-modal-bg mb-[28px]">
+      <h3 className="uppercase font-rubik text-modal-title bg-modal-bg mb-[28px">
         Не упусти свой <span className="text-accent">последний шанс</span>
       </h3>
       <p className=" text-modal-text leading-[1.3] mb-[8px]">
@@ -62,6 +64,7 @@ function Modal({ data }: IModalProps) {
         text="Начать тренироваться"
         additionalClasses="p-button-modal normal-case mt-[40px]"
       />
+      <button className="absolute bg-[url('../images/close.png')] w-[24px] h-[24px] right-[20px] top-[23px] cursor-pointer" onClick={handleClose}></button>
     </div>,
     modalRoot!
   );

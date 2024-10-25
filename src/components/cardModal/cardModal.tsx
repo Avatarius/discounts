@@ -8,7 +8,7 @@ interface ICardProps {
 }
 
 function CardModal({ data, active, handleClick }: ICardProps) {
-  const [disountData, noDiscountData] = data;
+  const [disountData, noDiscountData, biggerDiscountData] = data;
   const cardClassList = clsx(
     "flex",
     "flex-col",
@@ -45,7 +45,7 @@ function CardModal({ data, active, handleClick }: ICardProps) {
         {noDiscountData.price}₽
       </p>
       <p className="font-['pt-root-ui'] text-card-mini-discount">
-        {disountData.price}₽
+        {biggerDiscountData.price}₽
       </p>
     </article>
   );
