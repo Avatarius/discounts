@@ -79,6 +79,7 @@ function Card(props: ICardProps) {
         gsap.to(".card__discount", {
           innerText: noDiscountData.price.toString(),
           snap: "innerText",
+          delay: 0.25
         });
       }
     },
