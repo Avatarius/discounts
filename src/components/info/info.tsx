@@ -49,6 +49,7 @@ function Info({ data, timeInSeconds, isBiggerDiscounts }: IInfoProps) {
   useGSAP(() => {
     if (isBiggerDiscounts) {
       gsap.set(".card .card__no-discount", {x: 0, scaleY: 1, autoAlpha: 1});
+      gsap.set(".card .card__star", {autoAlpha: 1});
     }
   }, { scope: cardsContainerRef, dependencies: [isBiggerDiscounts] })
   const descriptionList = [
