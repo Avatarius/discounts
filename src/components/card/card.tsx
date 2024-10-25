@@ -56,6 +56,7 @@ function Card(props: ICardProps) {
     "card__discount",
     "font-['pt-root-ui']",
     "tracking-[-2px]",
+    "flex",
     isHorizontal ? "text-card-discount-horizontal" : "text-card-discount"
   );
   const noDiscountClassList = clsx(
@@ -72,10 +73,10 @@ function Card(props: ICardProps) {
 
   const cardContainerRef = useRef<HTMLDivElement | null>(null);
 
-  useGSAP(
+    useGSAP(
     () => {
       if (timeInSeconds === 0) {
-        gsap.to(".card__discount", {
+        gsap.to("[data-price]", {
           innerText: defaultPrice.toString(),
           snap: "innerText",
           delay: 0.25,
@@ -87,7 +88,7 @@ function Card(props: ICardProps) {
 
   useGSAP(
     () => {
-      gsap.set(".card__discount", {
+      gsap.set("[data-price]", {
         innerText: discountedPrice.toString(),
       });
     },
@@ -102,9 +103,10 @@ function Card(props: ICardProps) {
     >
       <h2 className={titleClassList}>{name}</h2>
       <div className={priceClassList}>
-        <p className={discountClassList} data-price>
-          {discountedPrice}₽
-        </p>
+        <div className={discountClassList}>
+          <p data-price>{discountedPrice}</p>
+          <span className="block">₽</span>
+        </div>
         <p className={noDiscountClassList}>{defaultPrice}₽</p>
       </div>
       <p className={descriptionClassList}>{description}</p>
