@@ -13,20 +13,22 @@ interface ICardProps {
   description: string;
   isHorizontal?: boolean;
   timeInSeconds: number;
+  active: boolean;
+  handleClick: () => void;
 }
 
 function Card(props: ICardProps) {
-  const { data, description, isHorizontal, timeInSeconds } = props;
+  const { data, description, isHorizontal, timeInSeconds, active, handleClick } = props;
   const [disountData, noDiscountData, biggerDiscountData] = data;
   const cardClassList = clsx(
     "card",
     "flex",
     "rounded-card",
-    "border-card",
     "relative",
+    active ? "border-card border-[#01b9c5] bg-card-active" : "border-card",
     isHorizontal
       ? "col-span-3 mt-[36px] p-card-horizontal items-start"
-      : "flex-col p-card items-center"
+      : "flex-col p-card items-center",
   );
   const titleClassList = clsx(
     "font-BebasNeueCyrillic",
@@ -87,7 +89,7 @@ function Card(props: ICardProps) {
   );
 
   return (
-    <article className={cardClassList} ref={cardContainerRef}>
+    <article className={cardClassList} ref={cardContainerRef} onClick={handleClick}>
       <h2 className={titleClassList}>{disountData.name}</h2>
       <div className={priceClassList}>
         <p className={discountClassList} data-price>

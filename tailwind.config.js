@@ -51,6 +51,7 @@ module.exports = {
         "card-description": "#2f4353",
         "card-mini": "#2d3242",
         "card-mini-no-discount": "rgba(45, 50, 66, 0.7)",
+        "card-active": "rgba(1, 185, 197, .1)",
         checkbox: "#01b9c5",
         "checkbox-text": "#818798",
         "checkbox-link": "#2d97f9",
@@ -112,7 +113,7 @@ module.exports = {
         "modal-checkbox": "1.5px",
       },
       borderColor: {
-        card: "#01b9c5",
+        card: "#e7eaf1",
         "card-mini": "#e7eaf1",
         "modal-checkbox": "#555965",
       },
