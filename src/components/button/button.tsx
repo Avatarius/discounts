@@ -24,6 +24,6 @@ function Button({ text, additionalClasses, onClick }: IButtonProps) {
   }
 
 
-  return <button className={classList} onClick={handleClick}>{text}</button>;
+  return <button className={classList} onClick={handleClick} data-button>{text}</button>;
 }
 export { Button };

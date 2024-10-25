@@ -17,7 +17,15 @@ interface IInfoProps {
 function Info({ data, timeInSeconds, isBiggerDiscounts }: IInfoProps) {
   const [areRulesAccepeted, setAreRulesAccepeted] = useState(false);
   const cardsContainerRef = useRef<HTMLDivElement | null>(null);
+  const containerRef = useRef<HTMLDivElement | null>(null);
   const [cardActive, setCardActive] = useState([true, false, false, false]);
+
+  useGSAP(() => {
+    const timeline = gsap.timeline();
+    timeline.to('[data-button]', {scale: 1.15}).to('[data-button]', {scale: 1});
+    timeline.repeat(-1);
+
+  },{scope: containerRef})
 
   useGSAP(
     () => {
@@ -57,7 +65,7 @@ function Info({ data, timeInSeconds, isBiggerDiscounts }: IInfoProps) {
   );
 
   return (
-    <div>
+    <div ref={containerRef}>
       <div
         className="grid grid-cols-3 content-start gap-x-[12px] grow"
         ref={cardsContainerRef}
