@@ -88,7 +88,7 @@ function App() {
     if (timer === 0) {
       setTimeout(() => {
         setIsModalOpen(true);
-      }, 1000);
+      }, 1150);
     }
   }, [timer]);
 

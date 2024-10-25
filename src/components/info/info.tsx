@@ -74,7 +74,6 @@ function Info({ data, timeInSeconds, isBiggerDiscounts }: IInfoProps) {
           timeInSeconds={timeInSeconds}
           active={cardActive[0]}
           handleClick={() => setCardActive([true, false, false, false])}
-          isBiggerDiscounts={isBiggerDiscounts}
         />
         <Card
           name={data.month.name}
@@ -88,7 +87,6 @@ function Info({ data, timeInSeconds, isBiggerDiscounts }: IInfoProps) {
           timeInSeconds={timeInSeconds}
           active={cardActive[1]}
           handleClick={() => setCardActive([false, true, false, false])}
-          isBiggerDiscounts={isBiggerDiscounts}
         />
         <Card
           name={data.threeMonths.name}
@@ -102,7 +100,6 @@ function Info({ data, timeInSeconds, isBiggerDiscounts }: IInfoProps) {
           timeInSeconds={timeInSeconds}
           active={cardActive[2]}
           handleClick={() => setCardActive([false, false, true, false])}
-          isBiggerDiscounts={isBiggerDiscounts}
         />
         <Card
           name={data.forever.name}
@@ -117,7 +114,6 @@ function Info({ data, timeInSeconds, isBiggerDiscounts }: IInfoProps) {
           timeInSeconds={timeInSeconds}
           active={cardActive[3]}
           handleClick={() => setCardActive([false, false, false, true])}
-          isBiggerDiscounts={isBiggerDiscounts}
         />
       </div>
       <p className="font-['pt-root-ui'] text-text mt-[15px]">

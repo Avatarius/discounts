@@ -18,11 +18,19 @@ interface ICardProps {
   timeInSeconds: number;
   active: boolean;
   handleClick: () => void;
-  isBiggerDiscounts: boolean;
 }
 
 function Card(props: ICardProps) {
-  const { name, defaultPrice, discountedPrice, description, isHorizontal, timeInSeconds, active, handleClick, isBiggerDiscounts } = props;
+  const {
+    name,
+    defaultPrice,
+    discountedPrice,
+    description,
+    isHorizontal,
+    timeInSeconds,
+    active,
+    handleClick,
+  } = props;
   const cardClassList = clsx(
     "card",
     "flex",
@@ -31,7 +39,7 @@ function Card(props: ICardProps) {
     active ? "border-card-active bg-card-active" : "border-card",
     isHorizontal
       ? "col-span-3 mt-[36px] p-card-horizontal items-start"
-      : "flex-col p-card items-center",
+      : "flex-col p-card items-center"
   );
   const titleClassList = clsx(
     "font-BebasNeueCyrillic",
@@ -62,32 +70,36 @@ function Card(props: ICardProps) {
       : "max-w-[120px] text-center"
   );
 
-
   const cardContainerRef = useRef<HTMLDivElement | null>(null);
 
-/*   useGSAP(
+  useGSAP(
     () => {
       if (timeInSeconds === 0) {
         gsap.to(".card__discount", {
-          innerText: noDiscountData.price.toString(),
+          innerText: defaultPrice.toString(),
           snap: "innerText",
-          delay: 0.25
+          delay: 0.25,
         });
       }
     },
     { scope: cardContainerRef, dependencies: [timeInSeconds] }
   );
 
-  useGSAP(() => {
-    if (isBiggerDiscounts) {
+  useGSAP(
+    () => {
       gsap.set(".card__discount", {
-        innerText: priceValue.toString()
-      })
-    }
-  }, {scope: cardContainerRef, dependencies: [isBiggerDiscounts]}) */
+        innerText: discountedPrice.toString(),
+      });
+    },
+    { scope: cardContainerRef, dependencies: [discountedPrice] }
+  );
 
   return (
-    <article className={cardClassList} ref={cardContainerRef} onClick={handleClick}>
+    <article
+      className={cardClassList}
+      ref={cardContainerRef}
+      onClick={handleClick}
+    >
       <h2 className={titleClassList}>{name}</h2>
       <div className={priceClassList}>
         <p className={discountClassList} data-price>
@@ -96,7 +108,11 @@ function Card(props: ICardProps) {
         <p className={noDiscountClassList}>{defaultPrice}₽</p>
       </div>
       <p className={descriptionClassList}>{description}</p>
-      <Star additionalClasses="right-[3px] top-[5px] translate-y-[-50%]" defaultPrice={defaultPrice} discountedPrice={discountedPrice}/>
+      <Star
+        additionalClasses="right-[3px] top-[5px] translate-y-[-50%]"
+        defaultPrice={defaultPrice}
+        discountedPrice={discountedPrice}
+      />
     </article>
   );
 }
