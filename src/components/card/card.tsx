@@ -5,6 +5,7 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { TextPlugin } from "gsap/TextPlugin";
 import { Star } from "../star/star";
+import { before } from "node:test";
 
 gsap.registerPlugin(TextPlugin);
 gsap.registerPlugin(useGSAP);
@@ -62,7 +63,17 @@ function Card(props: ICardProps) {
   const noDiscountClassList = clsx(
     "text-card-no-discount",
     "self-end",
-    "card__no-discount"
+    "card__no-discount",
+    "relative",
+    "before=''",
+    "before:absolute",
+    "before:w-full",
+    "before:h-[1.2px]",
+    "before:top-[50%]",
+    "before:translate-y-[2px]",
+    "before:left-0",
+    "before:bg-card-no-discount"
+
   );
   const descriptionClassList = clsx(
     "text-card-description",
@@ -111,7 +122,7 @@ function Card(props: ICardProps) {
       </div>
       <p className={descriptionClassList}>{description}</p>
       <Star
-        additionalClasses="right-[3px] top-[5px] translate-y-[-50%]"
+        additionalClasses="right-[3px] top-[5px] translate-y-[-50%] w-[70px] h-[70px]"
         defaultPrice={defaultPrice}
         discountedPrice={discountedPrice}
       />

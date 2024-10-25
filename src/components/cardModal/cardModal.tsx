@@ -8,7 +8,6 @@ interface ICardProps {
   discountedPrice: number;
   active: boolean;
   handleClick: () => void;
-  isBiggerDiscounts: boolean;
 }
 
 function CardModal(props: ICardProps) {
@@ -17,7 +16,6 @@ function CardModal(props: ICardProps) {
     defaultPrice,
     discountedPrice,
     active,
-    isBiggerDiscounts,
     handleClick,
   } = props;
   const cardClassList = clsx(
@@ -29,6 +27,29 @@ function CardModal(props: ICardProps) {
     "rounded-card-mini",
     "relative",
     active ? "border-card-active bg-card-active" : "border-card"
+  );
+  const noDiscountClassList = clsx(
+    "font-['pt-root-ui']",
+    "text-card-mini-no-discount",
+    "mb-[41px]",
+    "relative",
+    "self-start",
+    "before=''",
+    "before:w-full",
+    "before:h-[2px]",
+    "before:bg-[#fd4d35]",
+    "before:absolute",
+    "before:left-0",
+    "before:top-[calc(50%-1px)]",
+    "before:rotate-[-18deg]",
+    "after=''",
+    "after:w-full",
+    "after:h-[2px]",
+    "after:bg-[#fd4d35]",
+    "after:absolute",
+    "after:left-0",
+    "after:top-[calc(50%-1px)]",
+    "after:rotate-[18deg]",
   );
   const checkboxClassList = clsx(
     "w-[22px]",
@@ -53,14 +74,14 @@ function CardModal(props: ICardProps) {
           )}
         </div>
       </div>
-      <p className="font-['pt-root-ui'] text-card-mini-no-discount mb-[41px]">
+      <p className={noDiscountClassList}>
         {defaultPrice}₽
       </p>
       <p className="font-['pt-root-ui'] text-card-mini-discount">
         {discountedPrice}₽
       </p>
       <Star
-        additionalClasses="w-[50px] h-[50px] bottom-[33px] right-[3px]"
+        additionalClasses="w-[50px] h-[50px] bottom-[53px] right-[3px]"
         defaultPrice={defaultPrice}
         discountedPrice={discountedPrice}
       />

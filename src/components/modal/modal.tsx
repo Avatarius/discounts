@@ -9,13 +9,12 @@ interface IModalProps {
   data: IData;
   handleClose: () => void;
   handleButtonClick: () => void;
-  isBiggerDiscounts: boolean;
 }
 
 const modalRoot = document.getElementById("modal");
 
 function Modal(props: IModalProps) {
-  const { data, handleClose, handleButtonClick, isBiggerDiscounts } = props;
+  const { data, handleClose, handleButtonClick } = props;
   const modalClassList = clsx(
     "fixed",
     "top-[50%]",
@@ -63,7 +62,6 @@ function Modal(props: IModalProps) {
             discountedPrice={data.week.discountedPrice}
             active={cardActive[0]}
             handleClick={() => setCardActive([true, false, false])}
-            isBiggerDiscounts={isBiggerDiscounts}
           />
           <CardModal
             name={data.month.name}
@@ -71,7 +69,6 @@ function Modal(props: IModalProps) {
             discountedPrice={data.month.discountedPrice}
             active={cardActive[1]}
             handleClick={() => setCardActive([false, true, false])}
-            isBiggerDiscounts={isBiggerDiscounts}
           />
           <CardModal
             name={data.threeMonths.name}
@@ -79,7 +76,6 @@ function Modal(props: IModalProps) {
             discountedPrice={data.threeMonths.discountedPrice}
             active={cardActive[2]}
             handleClick={() => setCardActive([false, false, true])}
-            isBiggerDiscounts={isBiggerDiscounts}
           />
         </div>
       </div>

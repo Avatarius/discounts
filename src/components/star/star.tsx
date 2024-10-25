@@ -13,8 +13,6 @@ function Star(props: IStarProps) {
     "card__star",
     "bg-[url('../images/Star.png')]",
     "bg-no-repeat",
-    "w-[70px]",
-    "h-[70px]",
     "absolute",
     "bg-no-repeat",
     "bg-center",

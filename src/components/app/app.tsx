@@ -1,12 +1,12 @@
 import { Timer } from "../timer/timer";
 import man from "../../images/man.png";
 import { useEffect, useState } from "react";
-import { IData, IRate, IRecord } from "../../utils/types";
+import { IData, IRecord } from "../../utils/types";
 import { Info } from "../info/info";
 import { Modal } from "../modal/modal";
 
 function App() {
-  const [timer, setTimer] = useState<number>(3333);
+  const [timer, setTimer] = useState<number>(3);
   const [data, setData] = useState<IData | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isBiggerDiscounts, setIsBiggerDiscount] = useState(false);
@@ -122,7 +122,6 @@ function App() {
           data={data}
           handleClose={() => setIsModalOpen(false)}
           handleButtonClick={() => setIsBiggerDiscount(true)}
-          isBiggerDiscounts={isBiggerDiscounts}
         />
       )}
     </>
