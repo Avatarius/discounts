@@ -3,7 +3,6 @@ import { CardModal } from "../cardModal/cardModal";
 import { IData } from "../../utils/types";
 import { Button } from "../button/button";
 import clsx from "clsx";
-import { before } from "node:test";
 import { useState } from "react";
 
 interface IModalProps {
@@ -15,12 +14,8 @@ interface IModalProps {
 
 const modalRoot = document.getElementById("modal");
 
-function Modal({
-  data,
-  handleClose,
-  handleButtonClick,
-  isBiggerDiscounts,
-}: IModalProps) {
+function Modal(props: IModalProps) {
+  const { data, handleClose, handleButtonClick, isBiggerDiscounts } = props;
   const modalClassList = clsx(
     "fixed",
     "top-[50%]",
@@ -63,19 +58,25 @@ function Modal({
         </p>
         <div className="flex gap-[20px] justify-between">
           <CardModal
-            data={data.week}
+            name={data.week.name}
+            defaultPrice={data.week.defaultPrice}
+            discountedPrice={data.week.discountedPrice}
             active={cardActive[0]}
             handleClick={() => setCardActive([true, false, false])}
             isBiggerDiscounts={isBiggerDiscounts}
           />
           <CardModal
-            data={data.month}
+            name={data.month.name}
+            defaultPrice={data.month.defaultPrice}
+            discountedPrice={data.month.discountedPrice}
             active={cardActive[1]}
             handleClick={() => setCardActive([false, true, false])}
             isBiggerDiscounts={isBiggerDiscounts}
           />
           <CardModal
-            data={data.threeMonths}
+            name={data.threeMonths.name}
+            defaultPrice={data.threeMonths.defaultPrice}
+            discountedPrice={data.threeMonths.discountedPrice}
             active={cardActive[2]}
             handleClick={() => setCardActive([false, false, true])}
             isBiggerDiscounts={isBiggerDiscounts}

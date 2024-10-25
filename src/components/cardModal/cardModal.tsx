@@ -3,19 +3,16 @@ import { IRate } from "../../utils/types";
 import { Star } from "../star/star";
 
 interface ICardProps {
-  data: IRate[];
+  name: string;
+  defaultPrice: number;
+  discountedPrice: number;
   active: boolean;
   handleClick: () => void;
   isBiggerDiscounts: boolean;
 }
 
-function CardModal({
-  data,
-  active,
-  handleClick,
-  isBiggerDiscounts,
-}: ICardProps) {
-  const [disountData, noDiscountData, biggerDiscountData] = data;
+function CardModal(props: ICardProps) {
+  const {name, defaultPrice, discountedPrice, active, isBiggerDiscounts, handleClick} = props;
   const cardClassList = clsx(
     "flex",
     "flex-col",
@@ -24,7 +21,7 @@ function CardModal({
     "border-card",
     "rounded-card-mini",
     "relative",
-    active ? "border-card-active bg-card-active" : "border-card"
+    active ? "border-card-active bg-card-active" : "border-card",
   );
   const checkboxClassList = clsx(
     "w-[22px]",
@@ -41,7 +38,7 @@ function CardModal({
     <article className={cardClassList} onClick={handleClick}>
       <div className="flex items-center gap-[58px]">
         <h4 className="font-BebasNeueCyrillic text-card-mini-title mb-[11px] whitespace-nowrap">
-          {disountData.name}
+          {name}
         </h4>
         <div className={checkboxClassList}>
           {active && (
@@ -50,19 +47,13 @@ function CardModal({
         </div>
       </div>
       <p className="font-['pt-root-ui'] text-card-mini-no-discount mb-[41px]">
-        {noDiscountData.price}₽
+        {defaultPrice}₽
       </p>
       <p className="font-['pt-root-ui'] text-card-mini-discount">
-        {biggerDiscountData.price}₽
+        {discountedPrice}₽
       </p>
       {/* <p className="right-0"></p> */}
-      <Star
-        additionalClasses="w-[50px] h-[50px] bottom-[33px] right-[3px]"
-        defaultPrice={noDiscountData.price}
-        discountedPrice={
-          isBiggerDiscounts ? biggerDiscountData.price : disountData.price
-        }
-      />
+      <Star additionalClasses="w-[50px] h-[50px] bottom-[33px] right-[3px]" defaultPrice={defaultPrice} discountedPrice={discountedPrice}/>
     </article>
   );
 }

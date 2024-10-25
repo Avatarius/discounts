@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import { IRate } from "../../utils/types";
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { TextPlugin } from "gsap/TextPlugin";
@@ -10,7 +10,9 @@ gsap.registerPlugin(TextPlugin);
 gsap.registerPlugin(useGSAP);
 
 interface ICardProps {
-  data: IRate[];
+  name: string;
+  defaultPrice: number;
+  discountedPrice: number;
   description: string;
   isHorizontal?: boolean;
   timeInSeconds: number;
@@ -20,8 +22,7 @@ interface ICardProps {
 }
 
 function Card(props: ICardProps) {
-  const { data, description, isHorizontal, timeInSeconds, active, handleClick, isBiggerDiscounts } = props;
-  const [disountData, noDiscountData, biggerDiscountData] = data;
+  const { name, defaultPrice, discountedPrice, description, isHorizontal, timeInSeconds, active, handleClick, isBiggerDiscounts } = props;
   const cardClassList = clsx(
     "card",
     "flex",
@@ -60,26 +61,11 @@ function Card(props: ICardProps) {
       ? "mt-card-description-horizontal text-left max-w-[165px]"
       : "max-w-[120px] text-center"
   );
-  const starClassList = clsx(
-    "card__star",
-    "bg-[url('../images/Star.png')]",
-    "bg-no-repeat",
-    "w-[70px]",
-    "h-[70px]",
-    "absolute",
-    "right-[2px]",
-    "top-[7px] translate-y-[-50%]",
-    "flex",
-    "justify-center",
-    "items-center"
-  );
-  const starTextClassList = clsx("block", "font-['pt-root-ui'] text-star");
+
 
   const cardContainerRef = useRef<HTMLDivElement | null>(null);
 
-  const priceValue = (isBiggerDiscounts && biggerDiscountData) ? biggerDiscountData.price : disountData.price;
-
-  useGSAP(
+/*   useGSAP(
     () => {
       if (timeInSeconds === 0) {
         gsap.to(".card__discount", {
@@ -98,19 +84,19 @@ function Card(props: ICardProps) {
         innerText: priceValue.toString()
       })
     }
-  }, {scope: cardContainerRef, dependencies: [isBiggerDiscounts]})
+  }, {scope: cardContainerRef, dependencies: [isBiggerDiscounts]}) */
 
   return (
     <article className={cardClassList} ref={cardContainerRef} onClick={handleClick}>
-      <h2 className={titleClassList}>{disountData.name}</h2>
+      <h2 className={titleClassList}>{name}</h2>
       <div className={priceClassList}>
         <p className={discountClassList} data-price>
-          {priceValue}₽
+          {discountedPrice}₽
         </p>
-        <p className={noDiscountClassList}>{noDiscountData.price}₽</p>
+        <p className={noDiscountClassList}>{defaultPrice}₽</p>
       </div>
       <p className={descriptionClassList}>{description}</p>
-      <Star additionalClasses="right-[3px] top-[5px] translate-y-[-50%]" defaultPrice={noDiscountData.price} discountedPrice={(isBiggerDiscounts && biggerDiscountData) ? biggerDiscountData.price : disountData.price}/>
+      <Star additionalClasses="right-[3px] top-[5px] translate-y-[-50%]" defaultPrice={defaultPrice} discountedPrice={discountedPrice}/>
     </article>
   );
 }

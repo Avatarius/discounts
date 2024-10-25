@@ -46,18 +46,16 @@ function Info({ data, timeInSeconds, isBiggerDiscounts }: IInfoProps) {
     { scope: cardsContainerRef, dependencies: [timeInSeconds] }
   );
 
-  useGSAP(() => {
-    if (isBiggerDiscounts) {
-      gsap.set(".card .card__no-discount", {x: 0, scaleY: 1, autoAlpha: 1});
-      gsap.set(".card .card__star", {autoAlpha: 1});
-    }
-  }, { scope: cardsContainerRef, dependencies: [isBiggerDiscounts] })
-  const descriptionList = [
-    "Чтобы просто начать 👍🏻",
-    "Привести тело впорядок 💪🏻",
-    "Изменить образ жизни 🔥",
-    "Всегда быть в форме и поддерживать своё здоровье ⭐️",
-  ];
+  useGSAP(
+    () => {
+      if (isBiggerDiscounts) {
+        gsap.set(".card .card__no-discount", { x: 0, scaleY: 1, autoAlpha: 1 });
+        gsap.set(".card .card__star", { autoAlpha: 1 });
+      }
+    },
+    { scope: cardsContainerRef, dependencies: [isBiggerDiscounts] }
+  );
+
   return (
     <div>
       <div
@@ -65,7 +63,9 @@ function Info({ data, timeInSeconds, isBiggerDiscounts }: IInfoProps) {
         ref={cardsContainerRef}
       >
         <Card
-          data={data.week}
+          name={data.week.name}
+          defaultPrice={data.week.defaultPrice}
+          discountedPrice={data.week.discountedPrice}
           description="Чтобы просто начать 👍🏻"
           timeInSeconds={timeInSeconds}
           active={cardActive[0]}
@@ -73,7 +73,9 @@ function Info({ data, timeInSeconds, isBiggerDiscounts }: IInfoProps) {
           isBiggerDiscounts={isBiggerDiscounts}
         />
         <Card
-          data={data.month}
+          name={data.month.name}
+          defaultPrice={data.month.defaultPrice}
+          discountedPrice={data.month.discountedPrice}
           description="Привести тело впорядок 💪🏻"
           timeInSeconds={timeInSeconds}
           active={cardActive[1]}
@@ -81,7 +83,9 @@ function Info({ data, timeInSeconds, isBiggerDiscounts }: IInfoProps) {
           isBiggerDiscounts={isBiggerDiscounts}
         />
         <Card
-          data={data.threeMonths}
+          name={data.threeMonths.name}
+          defaultPrice={data.threeMonths.defaultPrice}
+          discountedPrice={data.threeMonths.discountedPrice}
           description="Изменить образ жизни 🔥"
           timeInSeconds={timeInSeconds}
           active={cardActive[2]}
@@ -89,7 +93,9 @@ function Info({ data, timeInSeconds, isBiggerDiscounts }: IInfoProps) {
           isBiggerDiscounts={isBiggerDiscounts}
         />
         <Card
-          data={data.forever}
+          name={data.forever.name}
+          defaultPrice={data.forever.defaultPrice}
+          discountedPrice={data.forever.discountedPrice}
           description="Всегда быть в форме и поддерживать своё здоровье ⭐️"
           isHorizontal={true}
           timeInSeconds={timeInSeconds}

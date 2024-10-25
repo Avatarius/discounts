@@ -1,4 +1,4 @@
-interface IRate {
+interface IRecord {
   name: string;
   price: number;
   lengthInDays: number;
@@ -13,13 +13,20 @@ interface IRate {
   deleted: boolean
 }
 
-
-interface IData {
-  week: IRate[];
-  month: IRate[];
-  threeMonths: IRate[];
-  forever: IRate[];
+interface IRate {
+  name: string;
+  defaultPrice: number;
+  discountedPrice: number;
+  biggerDiscountedPrice: number | null;
 }
 
 
-export type {IRate, IData};
+interface IData {
+  week: IRate;
+  month: IRate;
+  threeMonths: IRate;
+  forever: IRate;
+}
+
+
+export type {IRecord, IRate, IData};

@@ -1,7 +1,7 @@
 import { Timer } from "../timer/timer";
 import man from "../../images/man.png";
 import { useEffect, useState } from "react";
-import { IData, IRate } from "../../utils/types";
+import { IData, IRate, IRecord } from "../../utils/types";
 import { Info } from "../info/info";
 import { Modal } from "../modal/modal";
 
@@ -20,15 +20,49 @@ function App() {
           return Promise.reject(res.status);
         }
       })
-      .then((res: IRate[]) => {
-        const groupedObject = Object.groupBy(res, ({ name }) => name);
-        const [week, month, threeMonths, forever] =
-          Object.values(groupedObject);
+      .then((res: IRecord[]) => {
+        const week = res.filter((item) => item.name === "1 неделя");
+        const month = res.filter((item) => item.name === "1 месяц");
+        const threeMonths = res.filter((item) => item.name === "3 месяца");
+        const forever = res.filter((item) => item.name === "навсегда");
         setData({
-          week: week ?? [],
-          month: month ?? [],
-          threeMonths: threeMonths ?? [],
-          forever: forever ?? [],
+          week: {
+            name: week[0].name,
+            defaultPrice:
+              week.find((item) => !item.isPopular && !item.isDiscount)?.price ??
+              0,
+            discountedPrice: week.find((item) => item.isPopular)?.price ?? 0,
+            biggerDiscountedPrice:
+              week.find((item) => item.isDiscount)?.price ?? 0,
+          },
+          month: {
+            name: month[0].name,
+            defaultPrice:
+              month.find((item) => !item.isPopular && !item.isDiscount)
+                ?.price ?? 0,
+            discountedPrice: month.find((item) => item.isPopular)?.price ?? 0,
+            biggerDiscountedPrice:
+              month.find((item) => item.isDiscount)?.price ?? 0,
+          },
+          threeMonths: {
+            name: threeMonths[0].name,
+            defaultPrice:
+              threeMonths.find((item) => !item.isPopular && !item.isDiscount)
+                ?.price ?? 0,
+            discountedPrice:
+              threeMonths.find((item) => item.isPopular)?.price ?? 0,
+            biggerDiscountedPrice:
+              threeMonths.find((item) => item.isDiscount)?.price ?? 0,
+          },
+          forever: {
+            name: forever[0].name,
+            defaultPrice:
+              forever.find((item) => !item.isPopular && !item.isDiscount)
+                ?.price ?? 0,
+            discountedPrice: forever.find((item) => item.isPopular)?.price ?? 0,
+            biggerDiscountedPrice:
+              forever.find((item) => item.isDiscount)?.price ?? null,
+          },
         });
       })
       .catch((err) => {
@@ -36,7 +70,6 @@ function App() {
       });
     //timer
     const timerId = setTimeout(function tick() {
-      // setTimeout()
       setTimer((prev) => {
         if (prev === 0) {
           clearInterval(timerId);
