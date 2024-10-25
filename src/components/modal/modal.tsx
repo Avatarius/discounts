@@ -2,6 +2,8 @@ import { createPortal } from "react-dom";
 import { CardModal } from "../cardModal/cardModal";
 import { IData } from "../../utils/types";
 import { Button } from "../button/button";
+import clsx from "clsx";
+import { before } from "node:test";
 
 interface IModalProps {
   data: IData;
@@ -10,8 +12,30 @@ interface IModalProps {
 const modalRoot = document.getElementById("modal");
 
 function Modal({ data }: IModalProps) {
+  const modalClassList = clsx(
+    "fixed",
+    "top-[50%]",
+    "left-[50%]",
+    "translate-x-modal-x",
+    "translate-y-modal-y",
+    "bg-modal-bg",
+    "flex",
+    "flex-col",
+    "justify-center",
+    "items-center",
+    "font-['pt-root-ui']",
+    "p-modal",
+    "before:content-['горящее_предложение']",
+    "before:absolute",
+    "before:text-modal-before",
+    "before:bg-accent",
+    "before:p-modal-before",
+    "before:inset-modal-before",
+    "before:top-[0]",
+    "before:left-[43px]"
+  );
   return createPortal(
-    <div className="fixed top-[50%] left-[50%] translate-x-modal-x translate-y-modal-y bg-modal-bg flex flex-col justify-center items-center font-['pt-root-ui'] p-modal">
+    <div className={modalClassList}>
       <h3 className="uppercase font-rubik text-modal-title bg-modal-bg mb-[28px]">
         Не упусти свой <span className="text-accent">последний шанс</span>
       </h3>

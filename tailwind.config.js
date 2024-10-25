@@ -26,20 +26,21 @@ module.exports = {
         ],
         "card-no-discount": ["24px", { fontWeight: 500, lineHeight: 1 }],
         "card-description": ["16px", { fontWeight: 500, lineHeight: 1.3 }],
-        "card-mini-title": ["26px", {fontWeight: 400, lineHeight: 1}],
-        "card-mini-no-discount": ["20px", {fontWeight: 700, lineHeight: 1.1}],
-        "card-mini-discount": ["46px", {fontWeight: 700, lineHeight: 1.1}],
+        "card-mini-title": ["26px", { fontWeight: 400, lineHeight: 1 }],
+        "card-mini-no-discount": ["20px", { fontWeight: 700, lineHeight: 1.1 }],
+        "card-mini-discount": ["46px", { fontWeight: 700, lineHeight: 1.1 }],
         text: ["18px", { fontWeight: 500, lineHeight: 1.3 }],
         "checkbox-text": ["16px", { fontWeight: 400, lineHeight: 1.1 }],
         button: ["20px", { fontWeight: 500, lineHeight: 1 }],
         warning: ["14px", { fontWeight: 400, lineHeight: 1.34 }],
         star: ["18px", { fontWeight: 500, lineHeight: 1.3 }],
-        "modal-title": ['30px', {fontWeight: 700, lineHeight: 1.3}],
-        "modal-text": ['24px', {fontWeight: 500, lineHeight: 1.3}]
+        "modal-title": ["30px", { fontWeight: 700, lineHeight: 1.3 }],
+        "modal-text": ["24px", { fontWeight: 500, lineHeight: 1.3 }],
+        "modal-before": ["16px", { fontWeight: 500, lineHeight: 1.3 }],
       },
       colors: {
         background: "#f5f7f7",
-        "accent": "#01b9c5",
+        accent: "#01b9c5",
         "timer-digits": "var(--timer-color, #01B9C5)",
         "timer-30-digits": "FD4D35",
         "timer-letters": "#818798",
@@ -59,7 +60,8 @@ module.exports = {
         star: "#fff",
         dots: "var(--timer-color, #01B9C5)",
         "modal-bg": "#f5f7f7",
-        "modal-title": "#12191d"
+        "modal-title": "#12191d",
+        "modal-before": "#fff",
       },
       padding: {
         header: "6px 69px 14px 0",
@@ -70,8 +72,9 @@ module.exports = {
         "card-mini": "20px 22px 20px 26px",
         button: "28px 99px",
         "button-modal": "20px 42px 22px",
-        modal: "55px 40px 40px",
-        "modal-discount": '12px 28px 16px 30px'
+        modal: "65px 40px 40px",
+        "modal-discount": "12px 28px 16px 30px",
+        "modal-before": "4px 10px 6px",
       },
       margin: {
         img: "44px",
@@ -92,7 +95,7 @@ module.exports = {
       },
       translate: {
         "modal-x": "calc(-50%)",
-        "modal-y": "calc(-50% + 7px)"
+        "modal-y": "calc(-50% + 2px)",
       },
       borderRadius: {
         card: "20px",
@@ -100,18 +103,18 @@ module.exports = {
         button: "60px",
         dots: "100px",
         "card-mini": "20px",
-        "modal-discount": "30px"
+        "modal-discount": "30px",
       },
       borderWidth: {
         card: "2px",
         "card-mini": "2px",
         "modal-discount": "1.5px",
-        "modal-checkbox": "1.5px"
+        "modal-checkbox": "1.5px",
       },
       borderColor: {
         card: "#01b9c5",
         "card-mini": "#e7eaf1",
-        "modal-checkbox": "#555965"
+        "modal-checkbox": "#555965",
       },
     },
   },
