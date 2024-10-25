@@ -41,7 +41,7 @@ function Modal({ data, handleClose, handleButtonClick }: IModalProps) {
   const [cardActive, setCardActive] = useState([true, false, false]);
   return createPortal(
     <div className={modalClassList}>
-      <h3 className="uppercase font-rubik text-modal-title bg-modal-bg mb-[28px">
+      <h3 className="uppercase font-rubik text-modal-title bg-modal-bg mb-[28px]">
         Не упусти свой <span className="text-accent">последний шанс</span>
       </h3>
       <p className=" text-modal-text leading-[1.3] mb-[8px]">
