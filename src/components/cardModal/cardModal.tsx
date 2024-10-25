@@ -52,7 +52,6 @@ function CardModal(props: ICardProps) {
       <p className="font-['pt-root-ui'] text-card-mini-discount">
         {discountedPrice}₽
       </p>
-      {/* <p className="right-0"></p> */}
       <Star additionalClasses="w-[50px] h-[50px] bottom-[33px] right-[3px]" defaultPrice={defaultPrice} discountedPrice={discountedPrice}/>
     </article>
   );

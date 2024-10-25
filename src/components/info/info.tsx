@@ -65,7 +65,11 @@ function Info({ data, timeInSeconds, isBiggerDiscounts }: IInfoProps) {
         <Card
           name={data.week.name}
           defaultPrice={data.week.defaultPrice}
-          discountedPrice={data.week.discountedPrice}
+          discountedPrice={
+            isBiggerDiscounts && data.week.biggerDiscountedPrice
+              ? data.week.biggerDiscountedPrice
+              : data.week.discountedPrice
+          }
           description="Чтобы просто начать 👍🏻"
           timeInSeconds={timeInSeconds}
           active={cardActive[0]}
@@ -75,7 +79,11 @@ function Info({ data, timeInSeconds, isBiggerDiscounts }: IInfoProps) {
         <Card
           name={data.month.name}
           defaultPrice={data.month.defaultPrice}
-          discountedPrice={data.month.discountedPrice}
+          discountedPrice={
+            isBiggerDiscounts && data.month.biggerDiscountedPrice
+              ? data.month.biggerDiscountedPrice
+              : data.month.discountedPrice
+          }
           description="Привести тело впорядок 💪🏻"
           timeInSeconds={timeInSeconds}
           active={cardActive[1]}
@@ -85,7 +93,11 @@ function Info({ data, timeInSeconds, isBiggerDiscounts }: IInfoProps) {
         <Card
           name={data.threeMonths.name}
           defaultPrice={data.threeMonths.defaultPrice}
-          discountedPrice={data.threeMonths.discountedPrice}
+          discountedPrice={
+            isBiggerDiscounts && data.threeMonths.biggerDiscountedPrice
+              ? data.threeMonths.biggerDiscountedPrice
+              : data.threeMonths.discountedPrice
+          }
           description="Изменить образ жизни 🔥"
           timeInSeconds={timeInSeconds}
           active={cardActive[2]}
@@ -95,7 +107,11 @@ function Info({ data, timeInSeconds, isBiggerDiscounts }: IInfoProps) {
         <Card
           name={data.forever.name}
           defaultPrice={data.forever.defaultPrice}
-          discountedPrice={data.forever.discountedPrice}
+          discountedPrice={
+            isBiggerDiscounts
+              ? data.forever.defaultPrice
+              : data.forever.discountedPrice
+          }
           description="Всегда быть в форме и поддерживать своё здоровье ⭐️"
           isHorizontal={true}
           timeInSeconds={timeInSeconds}
