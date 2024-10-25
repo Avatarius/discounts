@@ -9,11 +9,12 @@ import { useState } from "react";
 interface IModalProps {
   data: IData;
   handleClose: () => void;
+  handleButtonClick: () => void;
 }
 
 const modalRoot = document.getElementById("modal");
 
-function Modal({ data, handleClose }: IModalProps) {
+function Modal({ data, handleClose, handleButtonClick }: IModalProps) {
   const modalClassList = clsx(
     "fixed",
     "top-[50%]",
@@ -63,6 +64,10 @@ function Modal({ data, handleClose }: IModalProps) {
       <Button
         text="Начать тренироваться"
         additionalClasses="p-button-modal normal-case mt-[40px]"
+        onClick={() => {
+          handleButtonClick();
+          handleClose();
+        }}
       />
       <button className="absolute bg-[url('../images/close.png')] w-[24px] h-[24px] right-[20px] top-[23px] cursor-pointer" onClick={handleClose}></button>
     </div>,

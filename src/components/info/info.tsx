@@ -11,9 +11,10 @@ gsap.registerPlugin(useGSAP);
 interface IInfoProps {
   data: IData;
   timeInSeconds: number;
+  isBiggerDiscounts: boolean;
 }
 
-function Info({ data, timeInSeconds }: IInfoProps) {
+function Info({ data, timeInSeconds, isBiggerDiscounts }: IInfoProps) {
   const [areRulesAccepeted, setAreRulesAccepeted] = useState(false);
   const cardsContainerRef = useRef<HTMLDivElement | null>(null);
   const [cardActive, setCardActive] = useState([true, false, false, false]);
@@ -44,6 +45,12 @@ function Info({ data, timeInSeconds }: IInfoProps) {
     },
     { scope: cardsContainerRef, dependencies: [timeInSeconds] }
   );
+
+  useGSAP(() => {
+    if (isBiggerDiscounts) {
+      gsap.set(".card .card__no-discount", {x: 0, scaleY: 1, autoAlpha: 1});
+    }
+  }, { scope: cardsContainerRef, dependencies: [isBiggerDiscounts] })
   const descriptionList = [
     "Чтобы просто начать 👍🏻",
     "Привести тело впорядок 💪🏻",
@@ -62,6 +69,7 @@ function Info({ data, timeInSeconds }: IInfoProps) {
           timeInSeconds={timeInSeconds}
           active={cardActive[0]}
           handleClick={() => setCardActive([true, false, false, false])}
+          isBiggerDiscounts={isBiggerDiscounts}
         />
         <Card
           data={data.month}
@@ -69,6 +77,7 @@ function Info({ data, timeInSeconds }: IInfoProps) {
           timeInSeconds={timeInSeconds}
           active={cardActive[1]}
           handleClick={() => setCardActive([false, true, false, false])}
+          isBiggerDiscounts={isBiggerDiscounts}
         />
         <Card
           data={data.threeMonths}
@@ -76,6 +85,7 @@ function Info({ data, timeInSeconds }: IInfoProps) {
           timeInSeconds={timeInSeconds}
           active={cardActive[2]}
           handleClick={() => setCardActive([false, false, true, false])}
+          isBiggerDiscounts={isBiggerDiscounts}
         />
         <Card
           data={data.forever}
@@ -84,6 +94,7 @@ function Info({ data, timeInSeconds }: IInfoProps) {
           timeInSeconds={timeInSeconds}
           active={cardActive[3]}
           handleClick={() => setCardActive([false, false, false, true])}
+          isBiggerDiscounts={isBiggerDiscounts}
         />
       </div>
       <p className="font-['pt-root-ui'] text-text mt-[15px]">

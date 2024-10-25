@@ -9,6 +9,7 @@ function App() {
   const [data, setData] = useState<IData | null>(null);
   const [timer, setTimer] = useState<number>(3);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isBiggerDiscounts, setIsBiggerDiscount] = useState(false);
   useEffect(() => {
     // fetch data
     fetch("https://t-pay.iqfit.app/subscribe/list-test")
@@ -75,10 +76,10 @@ function App() {
         </h1>
         <section className="flex gap-[79px]">
           <img src={man} alt="man" className="object-contain mb-img"/>
-          <Info data={data} timeInSeconds={timer}/>
+          <Info data={data} timeInSeconds={timer} isBiggerDiscounts={isBiggerDiscounts}/>
         </section>
       </main>
-      {isModalOpen && <Modal data={data} handleClose={() => setIsModalOpen(false)}/>}
+      {isModalOpen && <Modal data={data} handleClose={() => setIsModalOpen(false)} handleButtonClick={() => setIsBiggerDiscount(true)}/>}
 
     </>
   );

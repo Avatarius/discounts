@@ -15,10 +15,11 @@ interface ICardProps {
   timeInSeconds: number;
   active: boolean;
   handleClick: () => void;
+  isBiggerDiscounts: boolean;
 }
 
 function Card(props: ICardProps) {
-  const { data, description, isHorizontal, timeInSeconds, active, handleClick } = props;
+  const { data, description, isHorizontal, timeInSeconds, active, handleClick, isBiggerDiscounts } = props;
   const [disountData, noDiscountData, biggerDiscountData] = data;
   const cardClassList = clsx(
     "card",
@@ -75,6 +76,8 @@ function Card(props: ICardProps) {
 
   const cardContainerRef = useRef<HTMLDivElement | null>(null);
 
+  const priceValue = (isBiggerDiscounts && biggerDiscountData) ? biggerDiscountData.price : disountData.price;
+
   useGSAP(
     () => {
       if (timeInSeconds === 0) {
@@ -88,12 +91,20 @@ function Card(props: ICardProps) {
     { scope: cardContainerRef, dependencies: [timeInSeconds] }
   );
 
+  useGSAP(() => {
+    if (isBiggerDiscounts) {
+      gsap.set(".card__discount", {
+        innerText: priceValue.toString()
+      })
+    }
+  }, {scope: cardContainerRef, dependencies: [isBiggerDiscounts]})
+
   return (
     <article className={cardClassList} ref={cardContainerRef} onClick={handleClick}>
       <h2 className={titleClassList}>{disountData.name}</h2>
       <div className={priceClassList}>
         <p className={discountClassList} data-price>
-          {disountData.price}₽
+          {priceValue}₽
         </p>
         <p className={noDiscountClassList}>{noDiscountData.price}₽</p>
       </div>
