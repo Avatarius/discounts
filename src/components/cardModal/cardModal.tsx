@@ -1,5 +1,6 @@
 import clsx from "clsx";
 import { IRate } from "../../utils/types";
+import { Star } from "../star/star";
 
 interface ICardProps {
   data: IRate[];
@@ -16,6 +17,7 @@ function CardModal({ data, active, handleClick }: ICardProps) {
     "p-card-mini",
     "border-card",
     "rounded-card-mini",
+    "relative",
     active ? "border-card-active bg-card-active" : "border-card",
   );
   const checkboxClassList = clsx(
@@ -47,6 +49,8 @@ function CardModal({ data, active, handleClick }: ICardProps) {
       <p className="font-['pt-root-ui'] text-card-mini-discount">
         {biggerDiscountData.price}₽
       </p>
+      {/* <p className="right-0"></p> */}
+      <Star additionalClasses="w-[50px] h-[50px] bottom-[33px] right-[3px]"/>
     </article>
   );
 }

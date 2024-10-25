@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { TextPlugin } from "gsap/TextPlugin";
+import { Star } from "../star/star";
 
 gsap.registerPlugin(TextPlugin);
 gsap.registerPlugin(useGSAP);
@@ -109,9 +110,7 @@ function Card(props: ICardProps) {
         <p className={noDiscountClassList}>{noDiscountData.price}₽</p>
       </div>
       <p className={descriptionClassList}>{description}</p>
-      <div className={starClassList}>
-        <span className={starTextClassList}>-30%</span>
-      </div>
+      <Star additionalClasses="right-[3px] top-[5px] translate-y-[-50%]"/>
     </article>
   );
 }
