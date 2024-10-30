@@ -125,7 +125,7 @@ function Card(props: ICardProps) {
       </div>
       <p className={descriptionClassList}>{description}</p>
       <Star
-        additionalClasses="right-[3px] top-[5px] translate-y-[-50%] w-[70px] h-[70px]"
+        additionalClasses="right-[3px] top-[5px] translate-y-[-50%]"
         defaultPrice={defaultPrice}
         discountedPrice={discountedPrice}
       />

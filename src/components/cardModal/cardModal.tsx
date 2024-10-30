@@ -81,10 +81,11 @@ function CardModal(props: ICardProps) {
         {discountedPrice}₽
       </p>
       <Star
-        additionalClasses="w-[50px] h-[50px] bottom-[53px] right-[3px] text-[13px]"
+        additionalClasses="bottom-[53px] right-[3px] text-[13px]"
         defaultPrice={defaultPrice}
         discountedPrice={discountedPrice}
         textSize={13}
+        size={50}
       />
     </article>
   );
