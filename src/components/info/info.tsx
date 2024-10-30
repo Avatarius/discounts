@@ -20,12 +20,16 @@ function Info({ data, timeInSeconds, isBiggerDiscounts }: IInfoProps) {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const [cardActive, setCardActive] = useState([true, false, false, false]);
 
-  useGSAP(() => {
-    const timeline = gsap.timeline();
-    timeline.to('[data-button]', {scale: 1.15}).to('[data-button]', {scale: 1});
-    timeline.repeat(-1);
-
-  },{scope: containerRef})
+  useGSAP(
+    () => {
+      const timeline = gsap.timeline();
+      timeline
+        .to("[data-button]", { scale: 1.15 })
+        .to("[data-button]", { scale: 1 });
+      timeline.repeat(-1);
+    },
+    { scope: containerRef }
+  );
 
   useGSAP(
     () => {

@@ -75,7 +75,6 @@ function Card(props: ICardProps) {
     "before:translate-y-[2px]",
     "before:left-0",
     "before:bg-card-no-discount"
-
   );
   const descriptionClassList = clsx(
     "font-pt-root-ui",
@@ -87,7 +86,7 @@ function Card(props: ICardProps) {
 
   const cardContainerRef = useRef<HTMLDivElement | null>(null);
 
-    useGSAP(
+  useGSAP(
     () => {
       if (timeInSeconds === 0) {
         gsap.to("[data-price]", {
@@ -128,6 +127,7 @@ function Card(props: ICardProps) {
         additionalClasses="right-[3px] top-[5px] translate-y-[-50%]"
         defaultPrice={defaultPrice}
         discountedPrice={discountedPrice}
+        small={false}
       />
     </article>
   );

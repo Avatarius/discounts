@@ -34,12 +34,14 @@ module.exports = {
         button: ["20px", { fontWeight: 500, lineHeight: 1 }],
         warning: ["14px", { fontWeight: 400, lineHeight: 1.34 }],
         star: ["18px", { fontWeight: 500, lineHeight: 1.3 }],
+        "star-small": ["13px", { fontWeight: 500, lineHeight: 1.3 }],
         "modal-title": ["30px", { fontWeight: 700, lineHeight: 1.3 }],
         "modal-text": ["24px", { fontWeight: 500, lineHeight: 1.3 }],
         "modal-before": ["16px", { fontWeight: 500, lineHeight: 1.3 }],
       },
       colors: {
         background: "#f5f7f7",
+        backdrop: "rgba(0, 0, 0, 0.4)",
         accent: "#01b9c5",
         "timer-digits": "var(--timer-color, #01B9C5)",
         "timer-30-digits": "FD4D35",
@@ -58,7 +60,6 @@ module.exports = {
         button: "#fff",
         "button-background": "#fd4d35",
         warning: "#818798",
-        star: "#fff",
         dots: "var(--timer-color, #01B9C5)",
         "modal-bg": "#f5f7f7",
         "modal-title": "#12191d",
@@ -70,7 +71,7 @@ module.exports = {
         "card-horizontal": "26px 0 21px 28px",
         "card-title": "32px",
         "card-discount": "6px",
-        "card-mini": "20px 22px 20px 26px",
+        "card-mini": "23px 22px 20px 26px",
         button: "28px 99px",
         "button-modal": "20px 42px 22px",
         modal: "65px 40px 40px",
@@ -94,10 +95,6 @@ module.exports = {
         "dots-y-before": "16px",
         "dots-y-after": "26px",
       },
-      translate: {
-        "modal-x": "calc(-50%)",
-        "modal-y": "calc(-50% + 2px)",
-      },
       borderRadius: {
         card: "20px",
         checkbox: "4.8px",
@@ -108,18 +105,18 @@ module.exports = {
       },
       borderWidth: {
         card: "2px",
-        'card-active': "2px",
+        "card-active": "2px",
         "modal-discount": "1.5px",
         "modal-checkbox": "1.5px",
       },
       borderColor: {
         card: "#e7eaf1",
-        "card-active": '#01b9c5',
+        "card-active": "#01b9c5",
         "modal-checkbox": "#555965",
       },
       gridTemplateColumns: {
-        info: "repeat(3, minmax(0, 187px))"
-      }
+        info: "repeat(3, minmax(0, 187px))",
+      },
     },
   },
   plugins: [],

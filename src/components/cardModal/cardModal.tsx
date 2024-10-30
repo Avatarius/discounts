@@ -11,13 +11,7 @@ interface ICardProps {
 }
 
 function CardModal(props: ICardProps) {
-  const {
-    name,
-    defaultPrice,
-    discountedPrice,
-    active,
-    handleClick,
-  } = props;
+  const { name, defaultPrice, discountedPrice, active, handleClick } = props;
   const cardClassList = clsx(
     "flex",
     "flex-col",
@@ -49,7 +43,7 @@ function CardModal(props: ICardProps) {
     "after:absolute",
     "after:left-0",
     "after:top-[calc(50%-1px)]",
-    "after:rotate-[18deg]",
+    "after:rotate-[18deg]"
   );
   const checkboxClassList = clsx(
     "w-[22px]",
@@ -74,9 +68,7 @@ function CardModal(props: ICardProps) {
           )}
         </div>
       </div>
-      <p className={noDiscountClassList}>
-        {defaultPrice}₽
-      </p>
+      <p className={noDiscountClassList}>{defaultPrice}₽</p>
       <p className="font-pt-root-ui text-card-mini-discount">
         {discountedPrice}₽
       </p>
@@ -84,8 +76,7 @@ function CardModal(props: ICardProps) {
         additionalClasses="bottom-[53px] right-[3px] text-[13px]"
         defaultPrice={defaultPrice}
         discountedPrice={discountedPrice}
-        textSize={13}
-        size={50}
+        small={true}
       />
     </article>
   );
