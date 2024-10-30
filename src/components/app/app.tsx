@@ -104,11 +104,11 @@ function App() {
         </span>
         <Timer timeInSeconds={timer} />
       </header>
-      <main className="px-[171px] bg-background pt-[19px]">
+      <main className="bg-background pt-[19px] flex flex-col justify-center">
         <h1 className="font-rubik text-heading text-center uppercase tracking-[0.01em] mb-[90px]">
           Выберите подходящий тарифный план
         </h1>
-        <section className="flex gap-[79px]">
+        <section className="flex justify-center gap-[79px]">
           <img src={man} alt="man" className="object-contain mb-img" />
           <Info
             data={data}

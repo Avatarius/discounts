@@ -117,6 +117,9 @@ module.exports = {
         "card-active": '#01b9c5',
         "modal-checkbox": "#555965",
       },
+      gridTemplateColumns: {
+        info: "repeat(3, minmax(0, 187px))"
+      }
     },
   },
   plugins: [],

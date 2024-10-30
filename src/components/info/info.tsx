@@ -65,9 +65,9 @@ function Info({ data, timeInSeconds, isBiggerDiscounts }: IInfoProps) {
   );
 
   return (
-    <div ref={containerRef}>
+    <div ref={containerRef} className="basis-[585px]">
       <div
-        className="grid grid-cols-3 content-start gap-x-[12px] grow"
+        className="grid grid-cols-info content-start gap-x-[12px] grow"
         ref={cardsContainerRef}
       >
         <Card
