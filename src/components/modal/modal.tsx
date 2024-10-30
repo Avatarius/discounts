@@ -59,21 +59,21 @@ function Modal(props: IModalProps) {
           <CardModal
             name={data.week.name}
             defaultPrice={data.week.defaultPrice}
-            discountedPrice={data.week.discountedPrice}
+            discountedPrice={data.week.biggerDiscountedPrice ?? 0}
             active={cardActive[0]}
             handleClick={() => setCardActive([true, false, false])}
           />
           <CardModal
             name={data.month.name}
             defaultPrice={data.month.defaultPrice}
-            discountedPrice={data.month.discountedPrice}
+            discountedPrice={data.month.biggerDiscountedPrice ?? 0}
             active={cardActive[1]}
             handleClick={() => setCardActive([false, true, false])}
           />
           <CardModal
             name={data.threeMonths.name}
             defaultPrice={data.threeMonths.defaultPrice}
-            discountedPrice={data.threeMonths.discountedPrice}
+            discountedPrice={data.threeMonths.biggerDiscountedPrice ?? 0}
             active={cardActive[2]}
             handleClick={() => setCardActive([false, false, true])}
           />
