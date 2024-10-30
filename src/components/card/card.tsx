@@ -56,12 +56,13 @@ function Card(props: ICardProps) {
   );
   const discountClassList = clsx(
     "card__discount",
-    "font-['pt-root-ui']",
+    "font-pt-root-ui",
     "tracking-[-2px]",
     "flex",
     isHorizontal ? "text-card-discount-horizontal" : "text-card-discount"
   );
   const noDiscountClassList = clsx(
+    "font-pt-root-ui",
     "text-card-no-discount",
     "self-end",
     "card__no-discount",
@@ -77,6 +78,7 @@ function Card(props: ICardProps) {
 
   );
   const descriptionClassList = clsx(
+    "font-pt-root-ui",
     "text-card-description",
     isHorizontal
       ? "mt-card-description-horizontal text-left max-w-[165px]"

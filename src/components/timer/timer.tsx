@@ -56,6 +56,14 @@ function Timer({ timeInSeconds }: ITimerProps) {
     timeInSeconds <= 30 && "text-timer-completed-digits"
   );
 
+  const spanClassList = clsx(
+    "font-pt-root-ui",
+    "block",
+    "text-timer-letters",
+    "absolute",
+    "inset-timer"
+  );
+
   function padNumber(num: number) {
     return String(num).padStart(2, "0");
   }
@@ -64,15 +72,11 @@ function Timer({ timeInSeconds }: ITimerProps) {
     <div className={containerClassList} ref={timerContainerRef} id="timer">
       <span className={numberClassList}>
         {padNumber(minutes)}
-        <span className="block text-timer-letters absolute inset-timer">
-          минут
-        </span>
+        <span className={spanClassList}>минут</span>
       </span>
       <span className={numberClassList}>
         {padNumber(seconds)}
-        <span className="block text-timer-letters absolute inset-timer">
-          секунд
-        </span>
+        <span className={spanClassList}>секунд</span>
       </span>
     </div>
   );

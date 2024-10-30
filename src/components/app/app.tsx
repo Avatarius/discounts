@@ -6,7 +6,7 @@ import { Info } from "../info/info";
 import { Modal } from "../modal/modal";
 
 function App() {
-  const [timer, setTimer] = useState<number>(120);
+  const [timer, setTimer] = useState<number>(3);
   const [data, setData] = useState<IData | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isBiggerDiscounts, setIsBiggerDiscount] = useState(false);
@@ -99,7 +99,7 @@ function App() {
   return (
     <>
       <header className="flex justify-center bg-white p-header">
-        <span className="block font-['pt-root-ui'] text-base self-center mr-[24px]">
+        <span className="block font-pt-root-ui text-base self-center mr-[24px]">
           Скидка действует:
         </span>
         <Timer timeInSeconds={timer} />

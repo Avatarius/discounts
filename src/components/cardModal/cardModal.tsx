@@ -29,7 +29,7 @@ function CardModal(props: ICardProps) {
     active ? "border-card-active bg-card-active" : "border-card"
   );
   const noDiscountClassList = clsx(
-    "font-['pt-root-ui']",
+    "font-pt-root-ui",
     "text-card-mini-no-discount",
     "mb-[41px]",
     "relative",
@@ -77,13 +77,14 @@ function CardModal(props: ICardProps) {
       <p className={noDiscountClassList}>
         {defaultPrice}₽
       </p>
-      <p className="font-['pt-root-ui'] text-card-mini-discount">
+      <p className="font-pt-root-ui text-card-mini-discount">
         {discountedPrice}₽
       </p>
       <Star
-        additionalClasses="w-[50px] h-[50px] bottom-[53px] right-[3px]"
+        additionalClasses="w-[50px] h-[50px] bottom-[53px] right-[3px] text-[13px]"
         defaultPrice={defaultPrice}
         discountedPrice={discountedPrice}
+        textSize={13}
       />
     </article>
   );

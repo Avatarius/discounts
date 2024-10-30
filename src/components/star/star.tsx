@@ -5,10 +5,11 @@ interface IStarProps {
   additionalClasses?: string;
   defaultPrice: number;
   discountedPrice: number;
+  textSize?: number;
 }
 
 function Star(props: IStarProps) {
-  const { additionalClasses, defaultPrice, discountedPrice } = props;
+  const { additionalClasses, defaultPrice, discountedPrice, textSize } = props;
   const starClassList = clsx(
     "card__star",
     "bg-[url('../images/Star.png')]",
@@ -22,7 +23,7 @@ function Star(props: IStarProps) {
     "items-center",
     additionalClasses
   );
-  const starTextClassList = clsx("block", "font-['pt-root-ui'] text-star");
+  const starTextClassList = clsx("block", "font-pt-root-ui", "text-star", typeof textSize !== undefined ? `text-[${textSize}px]` : "text-[18px]");
 
   return (
     <div className={starClassList}>

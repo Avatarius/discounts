@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        "pt-root-ui": ['"PT Root UI", sans-serif'],
+        "pt-root-ui": ['"pt-root-ui", sans-serif'],
         BebasNeue: ['"BebasNeue", sans-serif'],
         BebasNeueCyrillic: ["BebasNeueCyrillic, sans-serif"],
         rubik: ["Rubik, sans-serif"],

@@ -124,7 +124,7 @@ function Info({ data, timeInSeconds, isBiggerDiscounts }: IInfoProps) {
           handleClick={() => setCardActive([false, false, false, true])}
         />
       </div>
-      <p className="font-['pt-root-ui'] text-text mt-[15px]">
+      <p className="font-pt-root-ui text-text mt-[15px]">
         Следуя плану на 3 месяца, люди получают в 2 раза лучший результат, чем
         за 1 месяц
       </p>
@@ -133,7 +133,7 @@ function Info({ data, timeInSeconds, isBiggerDiscounts }: IInfoProps) {
           areRulesAccepeted={areRulesAccepeted}
           handleChange={() => setAreRulesAccepeted((prev) => !prev)}
         />
-        <p className="font-['pt-root-ui'] text-checkbox-text max-w-[400px] tracking-[0.07px]">
+        <p className="font-pt-root-ui text-checkbox-text max-w-[400px] tracking-[0.07px]">
           Я соглашаюсь с{" "}
           <span className="text-checkbox-link cursor-pointer">
             Правилами сервиса
@@ -146,7 +146,7 @@ function Info({ data, timeInSeconds, isBiggerDiscounts }: IInfoProps) {
         </p>
       </div>
       <Button text="Купить" additionalClasses="mt-[50px]" />
-      <p className="font-['pt-root-ui'] text-warning mt-warning">
+      <p className="font-pt-root-ui text-warning mt-warning">
         Нажимая «Купить», Пользователь соглашается на автоматическое списание
         денежных средств по истечению купленного периода. Дальнейшие списания по
         тарифам участвующим в акции осуществляются по полной стоимости согласно

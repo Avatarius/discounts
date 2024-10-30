@@ -26,7 +26,7 @@ function Modal(props: IModalProps) {
     "flex-col",
     "justify-center",
     "items-center",
-    "font-['pt-root-ui']",
+    "font-pt-root-ui",
     "p-modal",
     "before:content-['горящее_предложение']",
     "before:absolute",
@@ -46,7 +46,7 @@ function Modal(props: IModalProps) {
       </h3>
       <p className=" text-modal-text leading-[1.3] mb-[8px]">
         Мы знаем, как трудно начать..{" "}
-        <span className="font-rubik text-[#2d3242]">Поэтому!</span>
+        <span className="font-rubik font-bold text-[#2d3242]">Поэтому!</span>
       </p>
       <p className="text-modal-text text-[#2d3242] font-[700] p-modal-discount border-modal-discount border-accent rounded-modal-discount mb-[40px]">
         Дарим скидку для <span className="text-accent">лёгкого старта</span> 🏃‍♂️
