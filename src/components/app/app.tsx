@@ -98,13 +98,13 @@ function App() {
 
   return (
     <>
-      <header className="flex justify-center bg-white mb-[19px] p-header">
+      <header className="flex justify-center bg-white p-header">
         <span className="block font-['pt-root-ui'] text-base self-center mr-[24px]">
           Скидка действует:
         </span>
         <Timer timeInSeconds={timer} />
       </header>
-      <main className="px-[171px]">
+      <main className="px-[171px] bg-background pt-[19px]">
         <h1 className="font-rubik text-heading text-center uppercase tracking-[0.01em] mb-[90px]">
           Выберите подходящий тарифный план
         </h1>
