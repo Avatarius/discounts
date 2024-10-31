@@ -104,7 +104,7 @@ function App() {
         </span>
         <Timer timeInSeconds={timer} />
       </header>
-      <main className="bg-background pt-[19px] flex flex-col justify-center">
+      <main className=" pt-[19px] flex flex-col justify-center">
         <h1 className="font-rubik text-heading text-center uppercase tracking-[0.01em] mb-[90px]">
           Выберите подходящий тарифный план
         </h1>
