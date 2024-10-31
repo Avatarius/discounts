@@ -4,3 +4,10 @@
 @tailwind utilities;
 @import './variables.scss';
 @import '../fonts/font.scss';
+
+
+@layer base {
+  html {
+      @apply bg-background;
+  }
+}
